@@ -1,0 +1,3576 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="RopaX — Moda que define tu estilo. Ropa original y diseños personalizados con atención única y envío rápido." />
+  <meta name="keywords" content="ropa, moda, diseños personalizados, streetwear, casual, elegante, RopaX" />
+  <meta property="og:title" content="RopaX — Moda que define tu estilo" />
+  <meta property="og:description" content="Ropa original y diseños personalizados. Descubre tu estilo con RopaX." />
+  <meta property="og:type" content="website" />
+  <title>RopaX — Moda que define tu estilo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #1A1209;
+      --ink-mid: #4A3B2A;
+      --ink-light: #8C7B6B;
+      --cream: #F7F2EC;
+      --cream-dark: #EDE5D8;
+      --cream-mid: #F0E8DC;
+      --sand: #D4B896;
+      --sand-light: #E8D5BE;
+      --sand-pale: #F5EDE0;
+      --amber: #C9882A;
+      --amber-light: #E8A84A;
+      --amber-pale: #FBF0DC;
+      --charcoal: #2C2218;
+      --white: #FFFFFF;
+      --off-white: #FDFAF6;
+      --gray-100: #F4EFE8;
+      --gray-200: #E4DDD3;
+      --gray-400: #B8ADA0;
+      --gray-600: #7A6E62;
+      --gray-800: #3A2E22;
+      --shadow-soft: 0 4px 24px rgba(60, 35, 10, 0.08);
+      --shadow-card: 0 8px 32px rgba(60, 35, 10, 0.12);
+      --shadow-hover: 0 16px 48px rgba(60, 35, 10, 0.18);
+      --radius-sm: 6px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-xl: 40px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--off-white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes slideFromLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-80px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideFromRight {
+      from {
+        opacity: 0;
+        transform: translateX(80px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes floatUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ─── NAVBAR ─── */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      transition: background 0.25s ease, padding 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #navbar.scrolled {
+      background: rgba(253, 250, 246, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(60, 35, 10, 0.08);
+      padding: 12px 0;
+    }
+
+    #navbar .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      transition: var(--transition);
+    }
+
+    #navbar.scrolled .nav-logo {
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      padding: 9px 16px;
+      border-radius: 50px;
+      transition: var(--transition);
+    }
+
+    #navbar.scrolled .nav-links a {
+      color: var(--ink-mid);
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: var(--white) !important;
+    }
+
+    #navbar.scrolled .nav-links a:hover {
+      background: var(--amber-pale);
+      color: var(--amber) !important;
+    }
+
+    .nav-cta {
+      background: var(--white) !important;
+      color: var(--ink) !important;
+      font-weight: 600 !important;
+      font-size: 12px !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-cta:hover {
+      background: var(--amber-pale) !important;
+      color: var(--amber) !important;
+      transform: translateY(-1px);
+    }
+
+    #navbar.scrolled .nav-cta {
+      background: var(--amber) !important;
+      color: var(--white) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    #navbar.scrolled .hamburger span {
+      background: var(--ink);
+    }
+
+    #mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      background: var(--white);
+      border-top: 1px solid var(--gray-200);
+      box-shadow: 0 8px 24px rgba(60, 35, 10, 0.10);
+    }
+
+    #mobile-menu.open {
+      display: flex;
+    }
+
+    #mobile-menu a {
+      padding: 16px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gray-200);
+      transition: var(--transition);
+    }
+
+    #mobile-menu a:hover {
+      color: var(--amber);
+      background: var(--amber-pale);
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100svh;
+      background: linear-gradient(135deg, #2C1E0E 0%, #4A3520 35%, #7A5C38 65%, #C9882A 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 100px 0 60px;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect x='38' y='38' width='4' height='4' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E") repeat;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201, 136, 42, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.30);
+      backdrop-filter: blur(8px);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.0;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 400;
+      display: block;
+      font-size: 0.72em;
+      opacity: 0.80;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.80);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 50px;
+      padding: 15px 32px;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.20);
+    }
+
+    .btn-primary:hover {
+      background: var(--cream);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-whatsapp:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+    }
+
+    .btn-amber {
+      background: var(--amber);
+      color: var(--white);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-amber:hover {
+      background: #b07820;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, 0.55);
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--white);
+    }
+
+    .hero-content {
+      animation: slideFromLeft 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: slideFromRight 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+      height: 580px;
+      overflow: hidden;
+      mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    }
+
+    .marquee-container {
+      display: flex;
+      gap: 20px;
+      height: 100%;
+      width: 100%;
+    }
+
+    .marquee-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .marquee-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      animation-duration: 30s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .marquee-up .marquee-content {
+      animation-name: scroll-up;
+    }
+
+    .marquee-down .marquee-content {
+      animation-name: scroll-down;
+    }
+
+    .marquee-item {
+      width: 100%;
+      height: 240px;
+      flex-shrink: 0;
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .marquee-item:hover {
+      transform: scale(1.05) rotate(1deg);
+      z-index: 10;
+      box-shadow: var(--shadow-hover);
+    }
+
+    .marquee-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes scroll-up {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-50%);
+      }
+    }
+
+    @keyframes scroll-down {
+      0% {
+        transform: translateY(-50%);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .hero-img-frame {
+      position: relative;
+      width: 400px;
+      height: 480px;
+    }
+
+    .hero-img-frame::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      border-radius: var(--radius-lg);
+    }
+
+    .hero-img-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.30);
+    }
+
+    .hero-img-placeholder {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, #4A3520, #7A5C38, #C9882A);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.30);
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      background: rgba(253, 250, 246, 0.95);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+    }
+
+    .hero-floating-card.card-1 {
+      bottom: 32px;
+      left: -28px;
+      z-index: 2;
+    }
+
+    .hero-floating-card.card-2 {
+      top: 40px;
+      right: -28px;
+      z-index: 2;
+    }
+
+    .fcard-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 4px;
+    }
+
+    .fcard-value {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--amber);
+    }
+
+    .fcard-stars {
+      color: #F9C846;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .hero-scroll:hover {
+      color: var(--white);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: scaleY(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1.2);
+      }
+    }
+
+    /* ─── TRUST BAR ─── */
+    #trust-bar {
+      background: var(--white);
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 20px 0;
+    }
+
+    .trust-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      list-style: none;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-mid);
+      border-right: 1px solid var(--gray-200);
+    }
+
+    .trust-item:last-child {
+      border-right: none;
+    }
+
+    .trust-item i {
+      color: var(--amber);
+      font-size: 15px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      padding: 100px 0;
+      background: var(--off-white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-imgs.redesign-active {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      cursor: crosshair;
+    }
+
+    .about-imgs.redesign-active .base-img,
+    .about-imgs.redesign-active .redesign-overlay img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 98%;
+      height: 106%;
+      object-fit: contain;
+    }
+
+    .about-imgs.redesign-active .redesign-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      clip-path: circle(0% at 0% 0%);
+      z-index: 2;
+      pointer-events: none;
+      transition: clip-path 0.1s ease-out;
+    }
+
+    .about-imgs.redesign-active .redesign-overlay img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .redesign-hint {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26, 18, 9, 0.7);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 11px;
+      backdrop-filter: blur(4px);
+      z-index: 10;
+      pointer-events: none;
+      opacity: 0.8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .about-imgs.redesign-active:hover .redesign-hint {
+      opacity: 0;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .about-content p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.8;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 12px;
+    }
+
+    .stat-item {
+      padding: 20px;
+      text-align: center;
+      background: var(--amber-pale);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--sand-light);
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 6px;
+    }
+
+    /* ─── CUSTOM DESIGN SECTION ─── */
+    #custom-design {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #2C1E0E 0%, #4A3520 60%, #7A5C38 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #custom-design::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E") repeat;
+    }
+
+    .custom-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .custom-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .custom-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .custom-step.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(201, 136, 42, 0.35);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 56px;
+      text-align: right;
+    }
+
+    .step-content h4 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.70);
+      line-height: 1.6;
+    }
+
+    .custom-text .section-label {
+      color: var(--amber-light);
+    }
+
+    .custom-text .section-title {
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .custom-text p {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    /* ─── PRODUCTS ─── */
+    #products {
+      padding: 100px 0;
+      background: var(--gray-100);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto 56px;
+    }
+
+    .section-header p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin-top: 14px;
+    }
+
+    /* Filter tabs */
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .filter-tab {
+      padding: 9px 22px;
+      border-radius: 50px;
+      border: 1.5px solid var(--gray-200);
+      background: var(--white);
+      color: var(--ink-mid);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-tab:hover,
+    .filter-tab.active {
+      background: var(--amber);
+      color: var(--white);
+      border-color: var(--amber);
+    }
+
+    /* Search */
+    .search-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      width: 100%;
+    }
+
+    .search-box {
+      position: relative;
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .search-box i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--amber);
+      opacity: 0.7;
+      font-size: 15px;
+    }
+
+    #product-search {
+      width: 100%;
+      padding: 15px 20px 15px 48px;
+      border-radius: 50px;
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--ink);
+      outline: none;
+      transition: var(--transition);
+      box-shadow: var(--shadow-soft);
+    }
+
+    #product-search:focus {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 4px var(--amber-pale);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      border: 1px solid var(--gray-200);
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .product-card.extra-product {
+      display: none;
+    }
+
+    .product-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .product-img-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--ink-light);
+    }
+
+    .product-img-ph i {
+      font-size: 2.5rem;
+      opacity: 0.25;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--amber);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 50px;
+    }
+
+    .product-badge.new {
+      background: var(--ink);
+    }
+
+    .product-badge.sale {
+      background: #c0392b;
+    }
+
+    .product-badge.custom {
+      background: #6B3FA0;
+    }
+
+    .product-actions-hover {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      gap: 8px;
+      transform: translateY(12px);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-actions-hover {
+      transform: none;
+      opacity: 1;
+    }
+
+    .product-actions-hover a,
+    .product-actions-hover button {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .btn-buy-card {
+      background: var(--amber);
+      color: var(--white);
+    }
+
+    .btn-buy-card:hover {
+      background: #b07820;
+    }
+
+    .btn-wpp-card {
+      background: #25D366;
+      color: var(--white);
+    }
+
+    .btn-wpp-card:hover {
+      background: #1da851;
+    }
+
+    .product-info {
+      padding: 18px 18px 20px;
+    }
+
+    .product-cat {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 6px;
+    }
+
+    .product-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .product-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--amber);
+    }
+
+    .product-old-price {
+      font-size: 13px;
+      color: var(--ink-light);
+      text-decoration: line-through;
+      margin-left: 8px;
+    }
+
+    .product-stars {
+      color: #F9C846;
+      font-size: 11px;
+    }
+
+    /* Color swatches */
+    .product-colors {
+      display: flex;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .color-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--gray-200);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .color-dot:hover {
+      transform: scale(1.25);
+      border-color: var(--amber);
+    }
+
+    /* ─── BENEFITS ─── */
+    #benefits {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .benefit-card {
+      text-align: center;
+      padding: 40px 24px;
+      border-radius: var(--radius-lg);
+      background: var(--amber-pale);
+      border: 1px solid var(--sand-light);
+      transition: var(--transition);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-card);
+      background: var(--white);
+    }
+
+    .benefit-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--sand-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 22px;
+      color: var(--amber);
+      transition: var(--transition);
+    }
+
+    .benefit-card:hover .benefit-icon {
+      background: var(--amber);
+      color: var(--white);
+    }
+
+    .benefit-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .benefit-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials {
+      padding: 100px 0;
+      background: var(--gray-100);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--gray-200);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      font-family: var(--font-display);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--sand-light);
+    }
+
+    .t-stars {
+      color: #F9C846;
+      font-size: 14px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .t-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .t-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .t-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .t-desc {
+      font-size: 12px;
+      color: var(--ink-light);
+      margin-top: 2px;
+    }
+
+    /* ─── BEFORE & AFTER ─── */
+    #before-after {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .image-comparison {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      user-select: none;
+      cursor: grab;
+    }
+
+    .image-comparison.dragging {
+      cursor: grabbing;
+    }
+
+    .image-comparison__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-comparison__before {
+      z-index: 1;
+    }
+
+    .image-comparison__after {
+      z-index: 2;
+      clip-path: inset(0 0 0 50%);
+    }
+
+    .image-comparison__slider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: var(--white);
+      z-index: 3;
+      transform: translateX(-50%);
+      cursor: grab;
+    }
+
+    .image-comparison__slider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 48px;
+      height: 48px;
+      background: var(--white);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-comparison__slider::after {
+      content: '↔';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      color: var(--amber);
+      font-weight: bold;
+    }
+
+    .label-before,
+    .label-after {
+      position: absolute;
+      top: 20px;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      border-radius: 50px;
+      z-index: 4;
+      pointer-events: none;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .label-before {
+      left: 20px;
+    }
+
+    .label-after {
+      right: 20px;
+    }
+
+    .ba-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border: none;
+      color: var(--amber);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+    }
+
+    .ba-nav-btn:hover {
+      background: var(--white);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: var(--shadow-card);
+    }
+
+    .ba-nav-btn.prev {
+      left: 20px;
+    }
+
+    .ba-nav-btn.next {
+      right: 20px;
+    }
+
+    /* ─── CTA ─── */
+    #cta {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #2C1E0E 0%, #4A3520 50%, #7A5C38 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='1.2' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E") repeat;
+    }
+
+    .cta-inner {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.30);
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .cta-title em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.80);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .btn-cta-wpp {
+      background: #25D366;
+      color: var(--white);
+      padding: 17px 40px;
+      font-size: 14px;
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.40);
+    }
+
+    .btn-cta-wpp:hover {
+      background: #1da851;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(37, 211, 102, 0.50);
+    }
+
+    /* ─── APPOINTMENTS ─── */
+    #appointments {
+      padding: 100px 0;
+      background: var(--off-white);
+    }
+
+    .appointments-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .appointments-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-item-box {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contact-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--amber-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--amber);
+    }
+
+    .contact-text-wrap h4 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-light);
+      margin-bottom: 2px;
+    }
+
+    .contact-text-wrap p {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .appointments-form-side {
+      background: var(--white);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--gray-200);
+    }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-mid);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1.5px solid var(--gray-200);
+      font-family: var(--font-body);
+      font-size: 14px;
+      transition: var(--transition);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--amber);
+      box-shadow: 0 0 0 4px var(--amber-pale);
+    }
+
+    .btn-form-wpp {
+      width: 100%;
+      background: #25D366;
+      color: var(--white);
+      padding: 16px;
+      border-radius: 50px;
+      border: none;
+      font-family: var(--font-body);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+
+    .btn-form-wpp:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.30);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--charcoal);
+      padding: 60px 0 28px;
+      color: var(--gray-400);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--gray-400);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-400);
+      text-decoration: none;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .social-btn:hover {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--gray-400);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--amber-light);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .footer-contact-item i {
+      color: var(--amber);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--gray-600);
+    }
+
+    /* ─── FLOAT WPP ─── */
+    #wpp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: var(--white);
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+      z-index: 999;
+      transition: var(--transition);
+    }
+
+    #wpp-float:hover {
+      background: #1da851;
+      transform: scale(1.1);
+      box-shadow: 0 8px 32px rgba(37, 211, 102, 0.55);
+    }
+
+    #wpp-float::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #25D366;
+      animation: wppPulse 2.4s ease-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes wppPulse {
+      0% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.7);
+      }
+    }
+
+    /* ─── CART ─── */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 18, 9, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .cart-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 400px;
+      height: 100%;
+      background: var(--white);
+      z-index: 1001;
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.10);
+      transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.active {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-header h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--ink);
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: var(--ink-mid);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .close-cart:hover {
+      color: var(--amber);
+      transform: rotate(90deg);
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .cart-empty-msg {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--ink-light);
+      font-weight: 300;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .cart-item-img {
+      width: 70px;
+      height: 70px;
+      border-radius: var(--radius-sm);
+      background: var(--gray-100);
+      object-fit: contain;
+      padding: 5px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .cart-item-price {
+      font-size: 14px;
+      color: var(--amber);
+      font-weight: 600;
+    }
+
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .qty-btn:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .remove-item {
+      color: var(--ink-light);
+      font-size: 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: auto;
+      transition: var(--transition);
+    }
+
+    .remove-item:hover {
+      color: #e74c3c;
+    }
+
+    .cart-footer {
+      padding: 24px;
+      border-top: 1px solid var(--gray-200);
+      background: var(--gray-100);
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .cart-total span:last-child {
+      color: var(--amber);
+      font-size: 1.3rem;
+    }
+
+    .btn-checkout {
+      width: 100%;
+      background: var(--amber);
+      color: var(--white);
+      padding: 16px;
+      border: none;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-checkout:hover {
+      background: #b07820;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+    }
+
+    /* ─── NAV EXTRA ─── */
+    .nav-extra {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-cart {
+      position: relative;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-left: 20px;
+    }
+
+    #navbar.scrolled .nav-cart {
+      color: var(--ink);
+    }
+
+    .nav-cart:hover {
+      color: var(--amber);
+      transform: translateY(-2px);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: var(--amber);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--amber);
+      transition: var(--transition);
+    }
+
+    .lang-select {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.30);
+      color: var(--white);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 11px;
+      cursor: pointer;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    #navbar.scrolled .lang-select {
+      color: var(--ink);
+      border-color: var(--gray-200);
+      background: var(--white);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+
+      .custom-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .hero-sub {
+        margin: 0 auto 36px;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+
+      .about-content {
+        align-items: center;
+      }
+
+      .about-imgs {
+        height: 360px;
+        order: -1;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .trust-item {
+        border-right: none;
+        border-bottom: 1px solid var(--gray-200);
+        width: 100%;
+        justify-content: center;
+      }
+
+      .trust-item:last-child {
+        border-bottom: none;
+      }
+
+      .appointments-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .appointments-form-side {
+        padding: 28px;
+      }
+
+      #wpp-float {
+        right: 70px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: 2.6rem;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Nuevo breakpoint para el Nav a los 1000px */
+    @media (max-width: 1000px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* El resto de elementos siguen cambiando a los 768px como antes */
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      /* ... resto del código ... */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <header>
+    <nav id="navbar" role="navigation" aria-label="Navegación principal">
+      <div class="container">
+        <div class="nav-inner">
+          <a href="#" class="nav-logo" aria-label="RopaX">RopaX</a>
+          <ul class="nav-links" role="list">
+            <li><a href="#about" data-i18n="nav_about">Nosotros</a></li>
+            <li><a href="#products" data-i18n="nav_products">Productos</a></li>
+            <li><a href="#custom-design" data-i18n="nav_custom">Diseño Custom</a></li>
+            <li><a href="#benefits" data-i18n="nav_benefits">Beneficios</a></li>
+            <li><a href="#testimonials" data-i18n="nav_testimonials">Reseñas</a></li>
+            <li><a href="#appointments" data-i18n="nav_appointments">Contacto</a></li>
+            <li><a href="https://wa.me/593939675278" class="nav-cta"><i class="fab fa-whatsapp"></i> <span
+                  data-i18n="nav_whatsapp">WhatsApp</span></a></li>
+          </ul>
+          <div class="nav-extra">
+            <select id="lang-switcher" class="lang-select" aria-label="Cambiar idioma">
+              <option value="es">ES</option>
+              <option value="en">EN</option>
+              <option value="pt">PT</option>
+            </select>
+            <button class="nav-cart" id="cart-btn" aria-label="Ver carrito">
+              <i class="fas fa-shopping-bag"></i>
+              <span class="cart-count">0</span>
+            </button>
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" id="hamburger-btn">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobile-menu" role="navigation">
+        <a href="#about" data-i18n="nav_about">Nosotros</a>
+        <a href="#products" data-i18n="nav_products">Productos</a>
+        <a href="#custom-design" data-i18n="nav_custom">Diseño Custom</a>
+        <a href="#benefits" data-i18n="nav_benefits">Beneficios</a>
+        <a href="#testimonials" data-i18n="nav_testimonials">Reseñas</a>
+        <a href="#appointments" data-i18n="nav_appointments">Contacto</a>
+        <a href="https://wa.me/593939675278"><i class="fab fa-whatsapp"></i> &nbsp;<span
+            data-i18n="nav_whatsapp">WhatsApp</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section id="hero" aria-label="Sección principal">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-scissors"></i>
+            <span data-i18n="hero_badge">Diseños 100% Personalizados</span>
+          </div>
+          <h1 class="hero-title">
+            RopaX
+            <em data-i18n="hero_title_sub">Moda que define tu estilo</em>
+          </h1>
+          <p class="hero-sub" data-i18n="hero_sub">
+            Ropa original y diseños únicos creados para ti. Calidad, estilo y personalización en cada prenda.
+          </p>
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary">
+              <i class="fas fa-tshirt"></i>
+              <span data-i18n="hero_btn_products">Ver Colección</span>
+            </a>
+            <a href="#custom-design" class="btn btn-outline-white">
+              <i class="fas fa-pen-nib"></i>
+              <span data-i18n="hero_btn_custom">Diseño Custom</span>
+            </a>
+            <a href="https://wa.me/593939675278" class="btn btn-whatsapp" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i>
+              <span data-i18n="hero_btn_chat">Chatear</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="marquee-container">
+            <!-- Columna 1: Sube -->
+            <div class="marquee-col marquee-up">
+              <div class="marquee-content">
+                <div class="marquee-item"><img src="img/clothes1.png" alt="Fashion 1"></div>
+                <div class="marquee-item"><img src="img/clothes2.png" alt="Fashion 2"></div>
+                <div class="marquee-item"><img src="img/clothes3.png" alt="Fashion 3"></div>
+                <div class="marquee-item"><img src="img/clothes4.png" alt="Fashion 4"></div>
+                <div class="marquee-item"><img src="img/clothes5.png" alt="Fashion 5"></div>
+                <div class="marquee-item"><img src="img/clothes6.png" alt="Fashion 6"></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-item"><img src="img/clothes7.png" alt="Fashion 1"></div>
+                <div class="marquee-item"><img src="img/clothes8.png" alt="Fashion 2"></div>
+                <div class="marquee-item"><img src="img/clothes1.png" alt="Fashion 3"></div>
+                <div class="marquee-item"><img src="img/clothes2.png" alt="Fashion 4"></div>
+                <div class="marquee-item"><img src="img/clothes3.png" alt="Fashion 5"></div>
+                <div class="marquee-item"><img src="img/clothes4.png" alt="Fashion 6"></div>
+              </div>
+            </div>
+            <!-- Columna 2: Baja -->
+            <div class="marquee-col marquee-down">
+              <div class="marquee-content">
+                <div class="marquee-item"><img src="img/clothes1.png" alt="Fashion 7"></div>
+                <div class="marquee-item"><img src="img/clothes2.png" alt="Fashion 8"></div>
+                <div class="marquee-item"><img src="img/clothes3.png" alt="Fashion 9"></div>
+                <div class="marquee-item"><img src="img/clothes4.png" alt="Fashion 10"></div>
+                <div class="marquee-item"><img src="img/clothes5.png" alt="Fashion 11"></div>
+                <div class="marquee-item"><img src="img/clothes6.png" alt="Fashion 12"></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-item"><img src="img/clothes7.png" alt="Fashion 7"></div>
+                <div class="marquee-item"><img src="img/clothes8.png" alt="Fashion 8"></div>
+                <div class="marquee-item"><img src="img/clothes1.png" alt="Fashion 9"></div>
+                <div class="marquee-item"><img src="img/clothes2.png" alt="Fashion 10"></div>
+                <div class="marquee-item"><img src="img/clothes3.png" alt="Fashion 11"></div>
+                <div class="marquee-item"><img src="img/clothes4.png" alt="Fashion 12"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAR ── -->
+  <section id="trust-bar">
+    <div class="container">
+      <ul class="trust-list" role="list">
+        <li class="trust-item"><i class="fas fa-shield-halved"></i> <span data-i18n="trust_orig">Ropa Original</span>
+        </li>
+        <li class="trust-item"><i class="fas fa-truck-fast"></i> <span data-i18n="trust_delivery">Envío Rápido</span>
+        </li>
+        <li class="trust-item"><i class="fas fa-pen-nib"></i> <span data-i18n="trust_custom">Diseño Personalizado</span>
+        </li>
+        <li class="trust-item"><i class="fas fa-star"></i> <span data-i18n="trust_rating">4.9 de valoración</span></li>
+        <li class="trust-item"><i class="fas fa-headset"></i> <span data-i18n="trust_support">Atención
+            Personalizada</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-imgs redesign-active fade-in" id="redesign-container">
+          <img src="img/ropasinpersonalizar.png" class="base-img" alt="Boutique">
+          <div class="redesign-overlay">
+            <img src="img/ropapersonalizada.png" alt="Creative Design Sketches">
+          </div>
+          <div class="redesign-hint">
+            <i class="fas fa-wand-magic-sparkles"></i>
+            <span data-i18n="about_hint">Pase el mouse para ver el diseño</span>
+          </div>
+        </div>
+        <div class="about-content fade-in">
+          <p class="section-label" data-i18n="about_label">Sobre RopaX</p>
+          <h2 class="section-title" data-i18n="about_title">Moda con <em>identidad propia</em></h2>
+          <p data-i18n="about_p1">Nacimos para quienes buscan algo más que ropa: buscamos crear prendas que cuenten tu
+            historia. Ofrecemos una selección curada de ropa de calidad y la posibilidad de diseñar tus propias prendas.
+          </p>
+          <p data-i18n="about_p2">Desde casuals hasta prendas formales, pasando por colecciones deportivas y streetwear
+            — tenemos todo lo que necesitas para verte increíble cada día.</p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-num">1.8k+</div>
+              <div class="stat-label" data-i18n="stat_clients">Clientes</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">4.9★</div>
+              <div class="stat-label" data-i18n="stat_rating">Valoración</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">100%</div>
+              <div class="stat-label" data-i18n="stat_custom">Custom</div>
+            </div>
+          </div>
+          <a href="https://wa.me/593939675278" class="btn btn-amber" target="_blank" rel="noopener"
+            style="align-self:flex-start;margin-top:8px;">
+            <i class="fab fa-whatsapp"></i>
+            <span data-i18n="about_btn">Conocer Más</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRODUCTS ── -->
+  <section id="products">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label" data-i18n="products_label">Colección</p>
+        <h2 class="section-title" data-i18n="products_title">Prendas <em>destacadas</em></h2>
+        <p data-i18n="products_sub">Seleccionadas con cuidado para ofrecerte lo mejor en moda y estilo.</p>
+      </div>
+
+      <div class="filter-tabs fade-in">
+        <button class="filter-tab active" data-filter="all" data-i18n="filter_all">Todos</button>
+        <button class="filter-tab" data-filter="casual" data-i18n="filter_casual">Casual</button>
+        <button class="filter-tab" data-filter="elegante" data-i18n="filter_elegante">Elegante</button>
+        <button class="filter-tab" data-filter="deportivo" data-i18n="filter_deportivo">Deportivo</button>
+        <button class="filter-tab" data-filter="custom" data-i18n="filter_custom">Custom</button>
+      </div>
+
+      <div class="search-wrap fade-in">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="product-search" placeholder="Buscar prenda..."
+            data-i18n-placeholder="search_placeholder">
+        </div>
+      </div>
+
+      <div class="products-grid" role="list">
+
+        <!-- Card 1 -->
+        <article class="product-card fade-in" role="listitem" data-id="1" data-name="Camiseta Oversize Premium"
+          data-price="35.00" data-img="" data-category="casual">
+          <div class="product-img-wrap">
+            <div class="product-img-ph" style="background:linear-gradient(145deg,#EDE5D8,#D4B896);">
+              <i class="fas fa-tshirt"></i>
+              <span style="font-size:11px;color:var(--ink-light);font-weight:400;" data-i18n="prod_1_name">Camiseta
+                Oversize</span>
+            </div>
+            <span class="product-badge new" data-i18n="badge_new">Nuevo</span>
+            <div class="product-actions-hover">
+              <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
+                  data-i18n="btn_buy">Comprar</span></button>
+              <a href="https://wa.me/593939675278?text=Hola! Me interesa la Camiseta Oversize Premium"
+                class="btn-wpp-card" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WPP</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat" data-i18n="cat_casual">Casual</div>
+            <h3 class="product-name" data-i18n="prod_1_name">Camiseta Oversize Premium</h3>
+            <div class="product-colors">
+              <div class="color-dot" style="background:#2C1E0E;" title="Café oscuro"></div>
+              <div class="color-dot" style="background:#F7F2EC;" title="Crema"></div>
+              <div class="color-dot" style="background:#C9882A;" title="Ámbar"></div>
+            </div>
+            <div class="product-price-row" style="margin-top:10px;">
+              <span class="product-price">USD$ 35,00</span>
+              <div class="product-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="product-card fade-in" role="listitem" data-id="2" data-name="Pantalón Chino Slim"
+          data-price="55.00" data-img="" data-category="elegante">
+          <div class="product-img-wrap">
+            <div class="product-img-ph" style="background:linear-gradient(145deg,#F4EFE8,#E4DDD3);">
+              <i class="fas fa-person"></i>
+              <span style="font-size:11px;color:var(--ink-light);font-weight:400;" data-i18n="prod_2_name">Pantalón
+                Chino</span>
+            </div>
+            <span class="product-badge" data-i18n="badge_featured">Destacado</span>
+            <div class="product-actions-hover">
+              <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
+                  data-i18n="btn_buy">Comprar</span></button>
+              <a href="https://wa.me/593939675278?text=Hola! Me interesa el Pantalón Chino Slim" class="btn-wpp-card"
+                target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WPP</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat" data-i18n="cat_elegante">Elegante</div>
+            <h3 class="product-name" data-i18n="prod_2_name">Pantalón Chino Slim</h3>
+            <div class="product-colors">
+              <div class="color-dot" style="background:#2C2218;" title="Charcoal"></div>
+              <div class="color-dot" style="background:#D4B896;" title="Arena"></div>
+              <div class="color-dot" style="background:#4A3B2A;" title="Café"></div>
+            </div>
+            <div class="product-price-row" style="margin-top:10px;">
+              <span class="product-price">USD$ 55,00</span>
+              <div class="product-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="product-card fade-in" role="listitem" data-id="3" data-name="Hoodie Custom Print"
+          data-price="65.00" data-img="" data-category="custom">
+          <div class="product-img-wrap">
+            <div class="product-img-ph" style="background:linear-gradient(145deg,#2C1E0E,#4A3520);">
+              <i class="fas fa-pen-nib" style="color:rgba(201,136,42,0.7);"></i>
+              <span style="font-size:11px;color:rgba(255,255,255,0.6);font-weight:400;" data-i18n="prod_3_name">Hoodie
+                Custom</span>
+            </div>
+            <span class="product-badge custom">Custom</span>
+            <div class="product-actions-hover">
+              <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
+                  data-i18n="btn_buy">Comprar</span></button>
+              <a href="https://wa.me/593939675278?text=Hola! Me interesa el Hoodie Custom Print" class="btn-wpp-card"
+                target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WPP</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat" style="color:#6B3FA0;">Custom Design</div>
+            <h3 class="product-name" data-i18n="prod_3_name">Hoodie Custom Print</h3>
+            <div class="product-colors">
+              <div class="color-dot" style="background:#2C2218;"></div>
+              <div class="color-dot" style="background:#F7F2EC;"></div>
+              <div class="color-dot" style="background:#6B3FA0;"></div>
+            </div>
+            <div class="product-price-row" style="margin-top:10px;">
+              <span class="product-price">USD$ 65,00</span>
+              <div class="product-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="product-card fade-in" role="listitem" data-id="4" data-name="Set Deportivo Running"
+          data-price="70.00" data-img="" data-category="deportivo">
+          <div class="product-img-wrap">
+            <div class="product-img-ph" style="background:linear-gradient(145deg,#C9882A,#E8A84A);">
+              <i class="fas fa-dumbbell" style="color:rgba(255,255,255,0.5);"></i>
+              <span style="font-size:11px;color:rgba(255,255,255,0.75);font-weight:400;" data-i18n="prod_4_name">Set
+                Deportivo</span>
+            </div>
+            <span class="product-badge sale">-15%</span>
+            <div class="product-actions-hover">
+              <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
+                  data-i18n="btn_buy">Comprar</span></button>
+              <a href="https://wa.me/593939675278?text=Hola! Me interesa el Set Deportivo Running" class="btn-wpp-card"
+                target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WPP</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat" data-i18n="cat_deportivo">Deportivo</div>
+            <h3 class="product-name" data-i18n="prod_4_name">Set Deportivo Running</h3>
+            <div class="product-colors">
+              <div class="color-dot" style="background:#2C2218;"></div>
+              <div class="color-dot" style="background:#C9882A;"></div>
+              <div class="color-dot" style="background:#EDE5D8;"></div>
+            </div>
+            <div class="product-price-row" style="margin-top:10px;">
+              <span class="product-price">USD$ 59,50</span>
+              <span class="product-old-price">USD$ 70,00</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 (extra) -->
+        <article class="product-card fade-in extra-product" role="listitem" data-id="5" data-name="Camisa Lino Premium"
+          data-price="48.00" data-img="" data-category="elegante">
+          <div class="product-img-wrap">
+            <div class="product-img-ph" style="background:linear-gradient(145deg,#F7F2EC,#EDE5D8);">
+              <i class="fas fa-shirt"></i>
+              <span style="font-size:11px;color:var(--ink-light);font-weight:400;" data-i18n="prod_5_name">Camisa
+                Lino</span>
+            </div>
+            <div class="product-actions-hover">
+              <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
+                  data-i18n="btn_buy">Comprar</span></button>
+              <a href="https://wa.me/593939675278?text=Hola! Me interesa la Camisa de Lino Premium" class="btn-wpp-card"
+                target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WPP</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat" data-i18n="cat_elegante">Elegante</div>
+            <h3 class="product-name" data-i18n="prod_5_name">Camisa de Lino Premium</h3>
+            <div class="product-price-row" style="margin-top:10px;">
+              <span class="product-price">USD$ 48,00</span>
+              <div class="product-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 (extra) -->
+        <article class="product-card fade-in extra-product" role="listitem" data-id="6" data-name="Jogger Urban Style"
+          data-price="42.00" data-img="" data-category="casual">
+          <div class="product-img-wrap">
+            <div class="product-img-ph" style="background:linear-gradient(145deg,#3A2E22,#4A3B2A);">
+              <i class="fas fa-person-walking" style="color:rgba(201,136,42,0.6);"></i>
+              <span style="font-size:11px;color:rgba(255,255,255,0.55);font-weight:400;" data-i18n="prod_6_name">Jogger
+                Urban</span>
+            </div>
+            <div class="product-actions-hover">
+              <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
+                  data-i18n="btn_buy">Comprar</span></button>
+              <a href="https://wa.me/593939675278?text=Hola! Me interesa el Jogger Urban Style" class="btn-wpp-card"
+                target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WPP</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat" data-i18n="cat_casual">Casual</div>
+            <h3 class="product-name" data-i18n="prod_6_name">Jogger Urban Style</h3>
+            <div class="product-price-row" style="margin-top:10px;">
+              <span class="product-price">USD$ 42,00</span>
+              <div class="product-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 7 (extra) -->
+        <article class="product-card fade-in extra-product" role="listitem" data-id="7"
+          data-name="Camiseta Bordada Custom" data-price="40.00" data-img="" data-category="custom">
+          <div class="product-img-wrap">
+            <div class="product-img-ph" style="background:linear-gradient(145deg,#6B3FA0,#9B6BD0);">
+              <i class="fas fa-star" style="color:rgba(255,255,255,0.4);"></i>
+              <span style="font-size:11px;color:rgba(255,255,255,0.65);font-weight:400;"
+                data-i18n="prod_7_name">Camiseta Bordada</span>
+            </div>
+            <span class="product-badge custom">Custom</span>
+            <div class="product-actions-hover">
+              <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
+                  data-i18n="btn_buy">Comprar</span></button>
+              <a href="https://wa.me/593939675278?text=Hola! Me interesa la Camiseta Bordada Custom"
+                class="btn-wpp-card" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WPP</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat" style="color:#6B3FA0;">Custom Design</div>
+            <h3 class="product-name" data-i18n="prod_7_name">Camiseta Bordada Custom</h3>
+            <div class="product-price-row" style="margin-top:10px;">
+              <span class="product-price">USD$ 40,00</span>
+              <div class="product-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 8 (extra) -->
+        <article class="product-card fade-in extra-product" role="listitem" data-id="8" data-name="Leggings Deportivos"
+          data-price="30.00" data-img="" data-category="deportivo">
+          <div class="product-img-wrap">
+            <div class="product-img-ph" style="background:linear-gradient(145deg,#1A1209,#2C1E0E);">
+              <i class="fas fa-dumbbell" style="color:rgba(201,136,42,0.5);"></i>
+              <span style="font-size:11px;color:rgba(255,255,255,0.55);font-weight:400;"
+                data-i18n="prod_8_name">Leggings</span>
+            </div>
+            <div class="product-actions-hover">
+              <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
+                  data-i18n="btn_buy">Comprar</span></button>
+              <a href="https://wa.me/593939675278?text=Hola! Me interesan los Leggings Deportivos" class="btn-wpp-card"
+                target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WPP</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat" data-i18n="cat_deportivo">Deportivo</div>
+            <h3 class="product-name" data-i18n="prod_8_name">Leggings Deportivos Pro</h3>
+            <div class="product-price-row" style="margin-top:10px;">
+              <span class="product-price">USD$ 30,00</span>
+              <div class="product-stars">★★★★★</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div style="text-align:center;margin-top:48px;" class="fade-in">
+        <button id="show-more-products" class="btn btn-amber">
+          <i class="fas fa-plus"></i>
+          <span data-i18n="btn_more">Ver Toda la Colección</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CUSTOM DESIGN ── -->
+  <section id="custom-design">
+    <div class="container">
+      <div class="custom-inner">
+        <div class="custom-text fade-in">
+          <p class="section-label" data-i18n="custom_label">Diseño Personalizado</p>
+          <h2 class="section-title" data-i18n="custom_title">Crea tu prenda <em>única</em></h2>
+          <p data-i18n="custom_p">¿Tienes una idea en mente? Nosotros la hacemos realidad. Desde logos bordados hasta
+            estampados personalizados, cada prenda es una obra de arte hecha para ti.</p>
+          <a href="https://wa.me/593939675278?text=Hola! Me gustaría hacer un diseño personalizado"
+            class="btn btn-whatsapp" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i>
+            <span data-i18n="custom_btn">Empezar mi diseño</span>
+          </a>
+        </div>
+        <div class="custom-steps">
+          <div class="custom-step fade-in">
+            <span class="step-num">01</span>
+            <div class="step-content">
+              <h4 data-i18n="step_1_title">Cuéntanos tu idea</h4>
+              <p data-i18n="step_1_p">Escríbenos por WhatsApp o llena el formulario con tu concepto, colores y tipo de
+                prenda.</p>
+            </div>
+          </div>
+          <div class="custom-step fade-in">
+            <span class="step-num">02</span>
+            <div class="step-content">
+              <h4 data-i18n="step_2_title">Recibe tu propuesta</h4>
+              <p data-i18n="step_2_p">Nuestro equipo de diseño te envía una propuesta visual en 24-48 horas para tu
+                aprobación.</p>
+            </div>
+          </div>
+          <div class="custom-step fade-in">
+            <span class="step-num">03</span>
+            <div class="step-content">
+              <h4 data-i18n="step_3_title">Producción & Entrega</h4>
+              <p data-i18n="step_3_p">Aprobado el diseño, producimos tu prenda y la enviamos directamente a tu puerta.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BENEFITS ── -->
+  <section id="benefits">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label" data-i18n="benefits_label">Por qué elegirnos</p>
+        <h2 class="section-title" data-i18n="benefits_title">Nuestros <em>diferenciales</em></h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon"><i class="fas fa-shield-halved"></i></div>
+          <h3 class="benefit-title" data-i18n="ben_1_title">Calidad Garantizada</h3>
+          <p class="benefit-desc" data-i18n="ben_1_p">Solo trabajamos con telas y marcas de alta calidad. Cada prenda
+            pasa por un control riguroso antes de llegar a tus manos.</p>
+        </div>
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon"><i class="fas fa-pen-nib"></i></div>
+          <h3 class="benefit-title" data-i18n="ben_2_title">Diseños Únicos</h3>
+          <p class="benefit-desc" data-i18n="ben_2_p">Cada diseño personalizado es exclusivo. Creamos estampados,
+            bordados y prints que no encontrarás en ningún otro lugar.</p>
+        </div>
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon"><i class="fas fa-truck-fast"></i></div>
+          <h3 class="benefit-title" data-i18n="ben_3_title">Envío Express</h3>
+          <p class="benefit-desc" data-i18n="ben_3_p">Tu pedido sale el mismo día del pago. Envíos a todo el país con
+            rastreo en tiempo real incluido.</p>
+        </div>
+        <div class="benefit-card fade-in">
+          <div class="benefit-icon"><i class="fas fa-rotate-left"></i></div>
+          <h3 class="benefit-title" data-i18n="ben_4_title">Cambios Fáciles</h3>
+          <p class="benefit-desc" data-i18n="ben_4_p">¿La talla no fue la indicada? Sin problema. Tienes 15 días para
+            realizar cambios o devoluciones sin complicaciones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label" data-i18n="reviews_label">Clientes satisfechos</p>
+        <h2 class="section-title" data-i18n="reviews_title">Lo que dicen <em>nuestros clientes</em></h2>
+        <p data-i18n="reviews_sub">Más de 1.800 personas ya confían en RopaX para su moda y diseños personalizados.</p>
+      </div>
+      <div class="testimonials-grid">
+        <article class="testimonial-card fade-in">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text" data-i18n="review_1">"Encargué una camiseta con el logo de mi negocio y quedé impresionada.
+            La calidad del bordado es increíble y llegó en tiempo récord. ¡Ya hice mi segundo pedido!"</p>
+          <div class="t-author">
+            <div
+              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#C9882A,#4A3520);border:3px solid var(--sand-light);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:15px;">
+              S</div>
+            <div>
+              <div class="t-name" data-i18n="review_1_author">Sofía Mendoza</div>
+              <div class="t-desc" data-i18n="review_1_time">Cliente hace 6 meses</div>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card fade-in">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text" data-i18n="review_2">"La atención fue increíble. Me ayudaron a elegir la tela y el diseño, y
+            el resultado superó todas mis expectativas. La ropa fit perfecto y el diseño quedó hermoso."</p>
+          <div class="t-author">
+            <div
+              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#7A5C38,#C9882A);border:3px solid var(--sand-light);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:15px;">
+              C</div>
+            <div>
+              <div class="t-name" data-i18n="review_2_author">Carlos Paredes</div>
+              <div class="t-desc" data-i18n="review_2_time">Cliente hace 1 año</div>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card fade-in">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text" data-i18n="review_3">"Compro aquí siempre. Las prendas tienen una calidad excelente y los
+            hoodies personalizados son una locura. Todo el mundo me pregunta dónde los consigo."</p>
+          <div class="t-author">
+            <div
+              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#2C1E0E,#7A5C38);border:3px solid var(--sand-light);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:15px;">
+              V</div>
+            <div>
+              <div class="t-name" data-i18n="review_3_author">Valentina Cruz</div>
+              <div class="t-desc" data-i18n="review_3_time">Cliente fiel</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BEFORE & AFTER ── -->
+  <section id="before-after">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label" data-i18n="ba_label">Transformaciones</p>
+        <h2 class="section-title" data-i18n="ba_title">Diseño <em>Antes y Después</em></h2>
+      </div>
+      <div class="image-comparison fade-in" id="image-comparison">
+        <button class="ba-nav-btn prev" id="ba-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="ba-nav-btn next" id="ba-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="image-comparison__image image-comparison__before"
+          style="background:linear-gradient(135deg,#EDE5D8,#D4B896);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;">
+          <i class="fas fa-tshirt" style="font-size:5rem;color:rgba(74,53,32,0.25);"></i>
+          <span style="font-family:var(--font-display);font-size:1.5rem;color:rgba(74,53,32,0.45);font-style:italic;"
+            data-i18n="ba_before_label">Sin diseño</span>
+        </div>
+        <div class="image-comparison__image image-comparison__after"
+          style="background:linear-gradient(135deg,#2C1E0E,#C9882A);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;">
+          <i class="fas fa-star" style="font-size:5rem;color:rgba(255,255,255,0.30);"></i>
+          <span style="font-family:var(--font-display);font-size:1.5rem;color:rgba(255,255,255,0.75);font-style:italic;"
+            data-i18n="ba_after_label">Con diseño RopaX</span>
+        </div>
+        <div class="image-comparison__slider"></div>
+        <span class="label-before" data-i18n="ba_before">Antes</span>
+        <span class="label-after" data-i18n="ba_after">Después</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── APPOINTMENTS / CONTACT ── -->
+  <section id="appointments">
+    <div class="container">
+      <div class="appointments-grid">
+        <div class="appointments-info fade-in">
+          <p class="section-label" data-i18n="contact_label">Contáctanos</p>
+          <h2 class="section-title"><span data-i18n="contact_title">Haz tu pedido hoy</span></h2>
+          <p data-i18n="contact_p">Estamos listos para atenderte. Escríbenos por WhatsApp o llena el formulario y te
+            contactamos pronto.</p>
+          <div style="margin-top:20px;display:flex;flex-direction:column;gap:20px;">
+            <div class="contact-item-box">
+              <div class="contact-icon-wrap"><i class="fas fa-location-dot"></i></div>
+              <div class="contact-text-wrap">
+                <h4 data-i18n="contact_loc_label">Ubicación</h4>
+                <p>Montecristi, Manabí, Ecuador</p>
+              </div>
+            </div>
+            <div class="contact-item-box">
+              <div class="contact-icon-wrap"><i class="fab fa-whatsapp"></i></div>
+              <div class="contact-text-wrap">
+                <h4>WhatsApp</h4>
+                <p>0939675278</p>
+              </div>
+            </div>
+            <div class="contact-item-box">
+              <div class="contact-icon-wrap"><i class="fab fa-instagram"></i></div>
+              <div class="contact-text-wrap">
+                <h4>Instagram</h4>
+                <p>@ropax</p>
+              </div>
+            </div>
+            <div class="contact-item-box">
+              <div class="contact-icon-wrap"><i class="fab fa-tiktok"></i></div>
+              <div class="contact-text-wrap">
+                <h4>TikTok</h4>
+                <p>@ropax</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="appointments-form-side fade-in">
+          <h3 class="form-title" data-i18n="form_title">Envíanos tu diseño</h3>
+          <form id="appointment-form">
+            <div class="form-group">
+              <label data-i18n="form_name">Tu nombre</label>
+              <input type="text" id="user-name" class="form-control" placeholder="Ej. María González" required>
+            </div>
+            <div class="form-group">
+              <label data-i18n="form_phone">Tu WhatsApp</label>
+              <input type="tel" id="user-phone" class="form-control" placeholder="09XXXXXXXX" required>
+            </div>
+            <div class="form-group">
+              <label data-i18n="form_msg">Mensaje (opcional)</label>
+              <textarea id="user-msg" class="form-control" rows="3" placeholder="Cuéntanos qué necesitas..."></textarea>
+            </div>
+            <button type="submit" class="btn-form-wpp">
+              <i class="fab fa-whatsapp"></i> <span data-i18n="form_btn">Enviar por WhatsApp</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-inner fade-in">
+        <div class="cta-tag"><i class="fas fa-scissors"></i> <span data-i18n="cta_tag">Diseño Exclusivo</span></div>
+        <h2 class="cta-title" data-i18n="cta_title">¿Listo para vestir <em>a tu manera?</em></h2>
+        <p class="cta-sub" data-i18n="cta_sub">Únete a más de 1.800 personas que ya visten con estilo único. Escríbenos
+          y creamos la prenda perfecta para ti.</p>
+        <div class="cta-actions">
+          <a href="https://wa.me/593939675278?text=Hola RopaX! Quiero hacer un pedido" class="btn btn-cta-wpp"
+            target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> <span data-i18n="cta_btn_wpp">Escribir por WhatsApp</span>
+          </a>
+          <a href="#products" class="btn btn-outline-white">
+            <i class="fas fa-tshirt"></i> <span data-i18n="cta_btn_catalog">Ver Catálogo</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand fade-in">
+          <a href="#" class="footer-logo">RopaX</a>
+          <p class="footer-tagline" data-i18n="footer_tagline">Moda que define tu estilo. Ropa original, diseños
+            personalizados y amor en cada prenda.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/593939675278" class="social-btn" target="_blank" rel="noopener"><i
+                class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/ropax" class="social-btn" target="_blank" rel="noopener"><i
+                class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com/ropax" class="social-btn" target="_blank" rel="noopener"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://tiktok.com/@ropax" class="social-btn" target="_blank" rel="noopener"><i
+                class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="fade-in">
+          <h3 class="footer-col-title" data-i18n="footer_nav">Navegación</h3>
+          <ul class="footer-links">
+            <li><a href="#about" data-i18n="nav_about">Nosotros</a></li>
+            <li><a href="#products" data-i18n="nav_products">Productos</a></li>
+            <li><a href="#custom-design" data-i18n="nav_custom">Diseño Custom</a></li>
+            <li><a href="#benefits" data-i18n="nav_benefits">Beneficios</a></li>
+            <li><a href="#testimonials" data-i18n="nav_testimonials">Reseñas</a></li>
+          </ul>
+        </div>
+        <div class="fade-in">
+          <h3 class="footer-col-title" data-i18n="footer_cats">Categorías</h3>
+          <ul class="footer-links">
+            <li><a href="#products" data-i18n="cat_casual">Casual</a></li>
+            <li><a href="#products" data-i18n="cat_elegante">Elegante</a></li>
+            <li><a href="#products" data-i18n="cat_deportivo">Deportivo</a></li>
+            <li><a href="#custom-design" data-i18n="filter_custom">Custom</a></li>
+          </ul>
+        </div>
+        <div class="fade-in">
+          <h3 class="footer-col-title" data-i18n="footer_contact">Contacto</h3>
+          <div class="footer-contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <div><a href="https://wa.me/593939675278" style="color:var(--gray-400);text-decoration:none;">0939675278</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-instagram"></i>
+            <div><a href="https://instagram.com/ropax" style="color:var(--gray-400);text-decoration:none;"
+                target="_blank" rel="noopener">@ropax</a></div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-pin"></i>
+            <div>Montecristi, Manabí</div>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-clock"></i>
+            <div data-i18n="footer_hours">Lun–Sáb: 9h a 19h</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_copy">© 2025 RopaX — Todos los derechos reservados.</span>
+        <span>Hecho con <i class="fas fa-heart" style="color:var(--amber);"></i> para ti</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/593939675278?text=Hola! Visité el sitio de RopaX y quiero más información" id="wpp-float"
+    target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ── CART DRAWER ── -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h2 data-i18n="cart_title">Mi Carrito</h2>
+      <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cart-items-container">
+      <p class="cart-empty-msg" data-i18n="cart_empty">Tu carrito está vacío</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span data-i18n="cart_total">Total</span>
+        <span id="cart-total-value">USD$ 0,00</span>
+      </div>
+      <button class="btn-checkout" id="generate-order">
+        <i class="fab fa-whatsapp"></i> <span data-i18n="cart_btn">Generar Pedido</span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // ─── TRANSLATIONS INLINE ───
+    const i18nData = {
+      es: {
+        nav_about: "Nosotros", nav_products: "Productos", nav_custom: "Diseño Custom",
+        nav_benefits: "Beneficios", nav_testimonials: "Reseñas", nav_appointments: "Contacto",
+        nav_whatsapp: "WhatsApp", nav_gallery: "Galería",
+        hero_badge: "Diseños 100% Personalizados",
+        hero_title_sub: "Moda que define tu estilo",
+        hero_sub: "Ropa original y diseños únicos creados para ti. Calidad, estilo y personalización en cada prenda.",
+        hero_btn_products: "Ver Colección", hero_btn_custom: "Diseño Custom", hero_btn_chat: "Chatear",
+        hero_img_text: "Tu estilo, tu identidad",
+        hero_stat_1_label: "Clientes felices", hero_stat_2_label: "Valoración", hero_scroll: "Explorar",
+        trust_orig: "Ropa Original", trust_delivery: "Envío Rápido", trust_custom: "Diseño Personalizado",
+        trust_rating: "4.9 de valoración", trust_support: "Atención Personalizada",
+        about_label: "Sobre RopaX", about_title: "Moda con identidad propia",
+        about_img_style: "Estilo & Identidad", about_img_custom: "Diseños únicos para ti",
+        about_p1: "Nacimos para quienes buscan algo más que ropa: buscamos crear prendas que cuenten tu historia. Ofrecemos una selección curada de ropa de calidad y la posibilidad de diseñar tus propias prendas.",
+        about_p2: "Desde casuals hasta prendas formales, pasando por colecciones deportivas y streetwear — tenemos todo lo que necesitas para verte increíble cada día.",
+        stat_clients: "Clientes", stat_rating: "Valoración", stat_custom: "Custom",
+        about_btn: "Conocer Más",
+        products_label: "Colección", products_title: "Prendas destacadas",
+        products_sub: "Seleccionadas con cuidado para ofrecerte lo mejor en moda y estilo.",
+        filter_all: "Todos", filter_casual: "Casual", filter_elegante: "Elegante",
+        filter_deportivo: "Deportivo", filter_custom: "Custom",
+        search_placeholder: "Buscar prenda...",
+        badge_new: "Nuevo", badge_featured: "Destacado",
+        btn_buy: "Comprar", btn_more: "Ver Toda la Colección",
+        cat_casual: "Casual", cat_elegante: "Elegante", cat_deportivo: "Deportivo",
+        prod_1_name: "Camiseta Oversize Premium", prod_2_name: "Pantalón Chino Slim",
+        prod_3_name: "Hoodie Custom Print", prod_4_name: "Set Deportivo Running",
+        prod_5_name: "Camisa de Lino Premium", prod_6_name: "Jogger Urban Style",
+        prod_7_name: "Camiseta Bordada Custom", prod_8_name: "Leggings Deportivos Pro",
+        custom_label: "Diseño Personalizado", custom_title: "Crea tu prenda única",
+        custom_p: "¿Tienes una idea en mente? Nosotros la hacemos realidad. Desde logos bordados hasta estampados personalizados, cada prenda es una obra de arte hecha para ti.",
+        custom_btn: "Empezar mi diseño",
+        step_1_title: "Cuéntanos tu idea", step_1_p: "Escríbenos por WhatsApp o llena el formulario con tu concepto, colores y tipo de prenda.",
+        step_2_title: "Recibe tu propuesta", step_2_p: "Nuestro equipo de diseño te envía una propuesta visual en 24-48 horas para tu aprobación.",
+        step_3_title: "Producción & Entrega", step_3_p: "Aprobado el diseño, producimos tu prenda y la enviamos directamente a tu puerta.",
+        benefits_label: "Por qué elegirnos", benefits_title: "Nuestros diferenciales",
+        ben_1_title: "Calidad Garantizada", ben_1_p: "Solo trabajamos con telas y marcas de alta calidad. Cada prenda pasa por un control riguroso antes de llegar a tus manos.",
+        ben_2_title: "Diseños Únicos", ben_2_p: "Cada diseño personalizado es exclusivo. Creamos estampados, bordados y prints que no encontrarás en ningún otro lugar.",
+        ben_3_title: "Envío Express", ben_3_p: "Tu pedido sale el mismo día del pago. Envíos a todo el país con rastreo en tiempo real incluido.",
+        ben_4_title: "Cambios Fáciles", ben_4_p: "¿La talla no fue la indicada? Sin problema. Tienes 15 días para realizar cambios o devoluciones sin complicaciones.",
+        reviews_label: "Clientes satisfechos", reviews_title: "Lo que dicen nuestros clientes",
+        reviews_sub: "Más de 1.800 personas ya confían en RopaX para su moda y diseños personalizados.",
+        review_1: "\"Encargué una camiseta con el logo de mi negocio y quedé impresionada. La calidad del bordado es increíble y llegó en tiempo récord. ¡Ya hice mi segundo pedido!\"",
+        review_1_author: "Sofía Mendoza", review_1_time: "Cliente hace 6 meses",
+        review_2: "\"La atención fue increíble. Me ayudaron a elegir la tela y el diseño, y el resultado superó todas mis expectativas. La ropa fit perfecto y el diseño quedó hermoso.\"",
+        review_2_author: "Carlos Paredes", review_2_time: "Cliente hace 1 año",
+        review_3: "\"Compro aquí siempre. Las prendas tienen una calidad excelente y los hoodies personalizados son una locura. Todo el mundo me pregunta dónde los consigo.\"",
+        review_3_author: "Valentina Cruz", review_3_time: "Cliente fiel",
+        ba_label: "Transformaciones", ba_title: "Diseño Antes y Después",
+        ba_before: "Antes", ba_after: "Después",
+        ba_before_label: "Sin diseño", ba_after_label: "Con diseño RopaX",
+        contact_label: "Contáctanos", contact_title: "Haz tu pedido hoy",
+        contact_p: "Estamos listos para atenderte. Escríbenos por WhatsApp o llena el formulario y te contactamos pronto.",
+        contact_loc_label: "Ubicación", contact_btn_wpp: "Chatear por WhatsApp",
+        form_title: "Solicita información", form_name: "Tu nombre", form_phone: "Tu WhatsApp",
+        form_service: "Tipo de pedido", form_service_ph: "Selecciona...",
+        service_1: "Ropa Casual", service_2: "Ropa Elegante", service_3: "Ropa Deportiva",
+        service_4: "Diseño Custom", service_5: "Otro",
+        form_msg: "Mensaje (opcional)", form_btn: "Enviar por WhatsApp",
+        cta_tag: "Diseño Exclusivo", cta_title: "¿Listo para vestir a tu manera?",
+        cta_sub: "Únete a más de 1.800 personas que ya visten con estilo único. Escríbenos y creamos la prenda perfecta para ti.",
+        cta_btn_wpp: "Escribir por WhatsApp", cta_btn_catalog: "Ver Catálogo",
+        footer_tagline: "Moda que define tu estilo. Ropa original, diseños personalizados y amor en cada prenda.",
+        footer_nav: "Navegación", footer_cats: "Categorías", footer_contact: "Contacto",
+        footer_hours: "Lun–Sáb: 9h a 19h", footer_copy: "© 2025 RopaX — Todos los derechos reservados.",
+        cart_title: "Mi Carrito", cart_empty: "Tu carrito está vacío",
+        cart_total: "Total", cart_btn: "Generar Pedido",
+        msg_cart_intro: "¡Hola RopaX! Quisiera hacer el siguiente pedido:",
+        msg_cart_total: "Total del pedido:", msg_cart_footer: "Por favor indíquenme los métodos de pago disponibles.",
+        msg_appt_intro: "¡Hola! Me gustaría solicitar información:", msg_appt_name: "Nombre",
+        msg_appt_phone: "WhatsApp", msg_appt_service: "Servicio", msg_appt_message: "Mensaje",
+        msg_appt_no_msg: "Sin mensaje", wpp_float_msg: "¡Hola! Visité el sitio de RopaX y quiero más información."
+      },
+      en: {
+        nav_about: "About", nav_products: "Products", nav_custom: "Custom Design",
+        nav_benefits: "Benefits", nav_testimonials: "Reviews", nav_appointments: "Contact",
+        nav_whatsapp: "WhatsApp",
+        hero_badge: "100% Custom Designs",
+        hero_title_sub: "Fashion that defines your style",
+        hero_sub: "Original clothing and unique designs created for you. Quality, style and personalization in every garment.",
+        hero_btn_products: "View Collection", hero_btn_custom: "Custom Design", hero_btn_chat: "Chat Now",
+        hero_img_text: "Your style, your identity",
+        hero_stat_1_label: "Happy clients", hero_stat_2_label: "Rating", hero_scroll: "Explore",
+        trust_orig: "Original Clothing", trust_delivery: "Fast Shipping", trust_custom: "Custom Design",
+        trust_rating: "4.9 rating", trust_support: "Personal Support",
+        about_label: "About RopaX", about_title: "Fashion with its own identity",
+        about_img_style: "Style & Identity", about_img_custom: "Unique designs for you",
+        about_p1: "We were born for those who seek more than just clothes: we create garments that tell your story. We offer a curated selection of quality clothing and the possibility of designing your own pieces.",
+        about_p2: "From casual to formal, sportswear and streetwear — we have everything you need to look amazing every day.",
+        stat_clients: "Clients", stat_rating: "Rating", stat_custom: "Custom",
+        about_btn: "Learn More",
+        products_label: "Collection", products_title: "Featured items",
+        products_sub: "Carefully selected to offer you the best in fashion and style.",
+        filter_all: "All", filter_casual: "Casual", filter_elegante: "Elegant",
+        filter_deportivo: "Sport", filter_custom: "Custom",
+        search_placeholder: "Search garment...",
+        badge_new: "New", badge_featured: "Featured",
+        btn_buy: "Buy", btn_more: "See Full Collection",
+        cat_casual: "Casual", cat_elegante: "Elegant", cat_deportivo: "Sport",
+        prod_1_name: "Premium Oversize T-Shirt", prod_2_name: "Slim Chino Pants",
+        prod_3_name: "Custom Print Hoodie", prod_4_name: "Running Sport Set",
+        prod_5_name: "Premium Linen Shirt", prod_6_name: "Urban Joggers",
+        prod_7_name: "Custom Embroidered Tee", prod_8_name: "Pro Sport Leggings",
+        custom_label: "Custom Design", custom_title: "Create your unique garment",
+        custom_p: "Have an idea in mind? We make it happen. From embroidered logos to custom prints, each garment is a work of art made for you.",
+        custom_btn: "Start my design",
+        step_1_title: "Tell us your idea", step_1_p: "Write to us on WhatsApp or fill out the form with your concept, colors and type of garment.",
+        step_2_title: "Receive your proposal", step_2_p: "Our design team sends you a visual proposal within 24-48 hours for your approval.",
+        step_3_title: "Production & Delivery", step_3_p: "Once the design is approved, we produce your garment and send it directly to your door.",
+        benefits_label: "Why choose us", benefits_title: "Our advantages",
+        ben_1_title: "Guaranteed Quality", ben_1_p: "We only work with high quality fabrics and brands. Each garment goes through rigorous quality control before reaching you.",
+        ben_2_title: "Unique Designs", ben_2_p: "Every custom design is exclusive. We create prints, embroideries and graphics you won't find anywhere else.",
+        ben_3_title: "Express Shipping", ben_3_p: "Your order ships the same day of payment. Nationwide shipping with real-time tracking included.",
+        ben_4_title: "Easy Returns", ben_4_p: "Wrong size? No problem. You have 15 days to make exchanges or returns without hassle.",
+        reviews_label: "Happy customers", reviews_title: "What our clients say",
+        reviews_sub: "More than 1,800 people already trust RopaX for their fashion and custom designs.",
+        review_1: "\"I ordered a shirt with my business logo and was blown away. The embroidery quality is incredible and it arrived in record time. Already placed my second order!\"",
+        review_1_author: "Sofía Mendoza", review_1_time: "Customer for 6 months",
+        review_2: "\"The service was incredible. They helped me choose the fabric and design, and the result exceeded all my expectations. The fit is perfect and the design looks amazing.\"",
+        review_2_author: "Carlos Paredes", review_2_time: "Customer for 1 year",
+        review_3: "\"I always shop here. The garments have excellent quality and the custom hoodies are insane. Everyone asks me where I get them.\"",
+        review_3_author: "Valentina Cruz", review_3_time: "Loyal customer",
+        ba_label: "Transformations", ba_title: "Design Before & After",
+        ba_before: "Before", ba_after: "After",
+        ba_before_label: "Without design", ba_after_label: "With RopaX design",
+        contact_label: "Contact us", contact_title: "Place your order today",
+        contact_p: "We're ready to assist you. Write to us on WhatsApp or fill out the form and we'll contact you soon.",
+        contact_loc_label: "Location", contact_btn_wpp: "Chat on WhatsApp",
+        form_title: "Request information", form_name: "Your name", form_phone: "Your WhatsApp",
+        form_service: "Order type", form_service_ph: "Select...",
+        service_1: "Casual Wear", service_2: "Elegant Wear", service_3: "Sportswear",
+        service_4: "Custom Design", service_5: "Other",
+        form_msg: "Message (optional)", form_btn: "Send via WhatsApp",
+        cta_tag: "Exclusive Design", cta_title: "Ready to dress your way?",
+        cta_sub: "Join over 1,800 people who already dress with unique style. Write to us and we'll create the perfect garment for you.",
+        cta_btn_wpp: "Write on WhatsApp", cta_btn_catalog: "View Catalog",
+        footer_tagline: "Fashion that defines your style. Original clothing, custom designs and love in every piece.",
+        footer_nav: "Navigation", footer_cats: "Categories", footer_contact: "Contact",
+        footer_hours: "Mon–Sat: 9am to 7pm", footer_copy: "© 2025 RopaX — All rights reserved.",
+        cart_title: "My Cart", cart_empty: "Your cart is empty",
+        cart_total: "Total", cart_btn: "Generate Order",
+        msg_cart_intro: "Hi RopaX! I'd like to place the following order:",
+        msg_cart_total: "Order total:", msg_cart_footer: "Please let me know the available payment methods.",
+        msg_appt_intro: "Hi! I'd like to request information:", msg_appt_name: "Name",
+        msg_appt_phone: "WhatsApp", msg_appt_service: "Service", msg_appt_message: "Message",
+        msg_appt_no_msg: "No message", wpp_float_msg: "Hi! I visited the RopaX site and want more information."
+      },
+      pt: {
+        nav_about: "Sobre", nav_products: "Produtos", nav_custom: "Design Custom",
+        nav_benefits: "Benefícios", nav_testimonials: "Avaliações", nav_appointments: "Contato",
+        nav_whatsapp: "WhatsApp",
+        hero_badge: "Designs 100% Personalizados",
+        hero_title_sub: "Moda que define seu estilo",
+        hero_sub: "Roupas originais e designs únicos criados para você. Qualidade, estilo e personalização em cada peça.",
+        hero_btn_products: "Ver Coleção", hero_btn_custom: "Design Custom", hero_btn_chat: "Conversar",
+        hero_img_text: "Seu estilo, sua identidade",
+        hero_stat_1_label: "Clientes felizes", hero_stat_2_label: "Avaliação", hero_scroll: "Explorar",
+        trust_orig: "Roupas Originais", trust_delivery: "Entrega Rápida", trust_custom: "Design Personalizado",
+        trust_rating: "4.9 de avaliação", trust_support: "Atendimento Personalizado",
+        about_label: "Sobre RopaX", about_title: "Moda com identidade própria",
+        about_img_style: "Estilo & Identidade", about_img_custom: "Designs únicos para você",
+        about_p1: "Nascemos para quem busca mais do que roupas: criamos peças que contam sua história. Oferecemos uma seleção curada de roupas de qualidade e a possibilidade de criar suas próprias peças.",
+        about_p2: "Do casual ao formal, passando por coleções esportivas e streetwear — temos tudo que você precisa para se ver incrível todo dia.",
+        stat_clients: "Clientes", stat_rating: "Avaliação", stat_custom: "Custom",
+        about_btn: "Conhecer Mais",
+        products_label: "Coleção", products_title: "Peças em destaque",
+        products_sub: "Selecionadas com cuidado para oferecer o melhor em moda e estilo.",
+        filter_all: "Todos", filter_casual: "Casual", filter_elegante: "Elegante",
+        filter_deportivo: "Esportivo", filter_custom: "Custom",
+        search_placeholder: "Buscar peça...",
+        badge_new: "Novo", badge_featured: "Destaque",
+        btn_buy: "Comprar", btn_more: "Ver Toda a Coleção",
+        cat_casual: "Casual", cat_elegante: "Elegante", cat_deportivo: "Esportivo",
+        prod_1_name: "Camiseta Oversize Premium", prod_2_name: "Calça Chino Slim",
+        prod_3_name: "Moletom Custom Print", prod_4_name: "Conjunto Esportivo Running",
+        prod_5_name: "Camisa de Linho Premium", prod_6_name: "Jogger Urban Style",
+        prod_7_name: "Camiseta Bordada Custom", prod_8_name: "Leggings Esportivos Pro",
+        custom_label: "Design Personalizado", custom_title: "Crie sua peça única",
+        custom_p: "Tem uma ideia em mente? Nós a tornamos realidade. De logos bordados a estampas personalizadas, cada peça é uma obra de arte feita para você.",
+        custom_btn: "Começar meu design",
+        step_1_title: "Conte-nos sua ideia", step_1_p: "Escreva pelo WhatsApp ou preencha o formulário com seu conceito, cores e tipo de peça.",
+        step_2_title: "Receba sua proposta", step_2_p: "Nossa equipe de design envia uma proposta visual em 24-48 horas para sua aprovação.",
+        step_3_title: "Produção & Entrega", step_3_p: "Aprovado o design, produzimos sua peça e enviamos diretamente à sua porta.",
+        benefits_label: "Por que nos escolher", benefits_title: "Nossos diferenciais",
+        ben_1_title: "Qualidade Garantida", ben_1_p: "Trabalhamos apenas com tecidos e marcas de alta qualidade. Cada peça passa por controle rigoroso antes de chegar a você.",
+        ben_2_title: "Designs Únicos", ben_2_p: "Cada design personalizado é exclusivo. Criamos estampas, bordados e prints que você não encontrará em nenhum outro lugar.",
+        ben_3_title: "Envio Express", ben_3_p: "Seu pedido sai no mesmo dia do pagamento. Envios para todo o país com rastreamento em tempo real.",
+        ben_4_title: "Trocas Fáceis", ben_4_p: "O tamanho não ficou certo? Sem problema. Você tem 15 dias para fazer trocas ou devoluções sem complicações.",
+        reviews_label: "Clientes satisfeitos", reviews_title: "O que dizem nossos clientes",
+        reviews_sub: "Mais de 1.800 pessoas já confiam na RopaX para sua moda e designs personalizados.",
+        review_1: "\"Encomendei uma camiseta com o logo do meu negócio e fiquei impressionada. A qualidade do bordado é incrível e chegou em tempo recorde. Já fiz meu segundo pedido!\"",
+        review_1_author: "Sofía Mendoza", review_1_time: "Cliente há 6 meses",
+        review_2: "\"O atendimento foi incrível. Me ajudaram a escolher o tecido e o design, e o resultado superou todas as minhas expectativas. O fit é perfeito e o design ficou lindo.\"",
+        review_2_author: "Carlos Paredes", review_2_time: "Cliente há 1 ano",
+        review_3: "\"Compro sempre aqui. As peças têm qualidade excelente e os moletons personalizados são uma loucura. Todo mundo me pergunta onde eu os consigo.\"",
+        review_3_author: "Valentina Cruz", review_3_time: "Cliente fiel",
+        ba_label: "Transformações", ba_title: "Design Antes e Depois",
+        ba_before: "Antes", ba_after: "Depois",
+        ba_before_label: "Sem design", ba_after_label: "Com design RopaX",
+        contact_label: "Contate-nos", contact_title: "Faça seu pedido hoje",
+        contact_p: "Estamos prontos para atendê-lo. Escreva pelo WhatsApp ou preencha o formulário e entraremos em contato.",
+        contact_loc_label: "Localização", contact_btn_wpp: "Conversar pelo WhatsApp",
+        form_title: "Solicite informações", form_name: "Seu nome", form_phone: "Seu WhatsApp",
+        form_service: "Tipo de pedido", form_service_ph: "Selecione...",
+        service_1: "Roupa Casual", service_2: "Roupa Elegante", service_3: "Roupa Esportiva",
+        service_4: "Design Custom", service_5: "Outro",
+        form_msg: "Mensagem (opcional)", form_btn: "Enviar pelo WhatsApp",
+        cta_tag: "Design Exclusivo", cta_title: "Pronto para vestir do seu jeito?",
+        cta_sub: "Junte-se a mais de 1.800 pessoas que já se vestem com estilo único. Escreva para nós e criamos a peça perfeita para você.",
+        cta_btn_wpp: "Escrever pelo WhatsApp", cta_btn_catalog: "Ver Catálogo",
+        footer_tagline: "Moda que define seu estilo. Roupas originais, designs personalizados e amor em cada peça.",
+        footer_nav: "Navegação", footer_cats: "Categorias", footer_contact: "Contato",
+        footer_hours: "Seg–Sáb: 9h às 19h", footer_copy: "© 2025 RopaX — Todos os direitos reservados.",
+        cart_title: "Meu Carrinho", cart_empty: "Seu carrinho está vazio",
+        cart_total: "Total", cart_btn: "Gerar Pedido",
+        msg_cart_intro: "Olá RopaX! Gostaria de fazer o seguinte pedido:",
+        msg_cart_total: "Total do pedido:", msg_cart_footer: "Por favor informe os métodos de pagamento disponíveis.",
+        msg_appt_intro: "Olá! Gostaria de solicitar informações:", msg_appt_name: "Nome",
+        msg_appt_phone: "WhatsApp", msg_appt_service: "Serviço", msg_appt_message: "Mensagem",
+        msg_appt_no_msg: "Sem mensagem", wpp_float_msg: "Olá! Visitei o site da RopaX e quero mais informações."
+      }
+    };
+
+    let currentLang = 'es';
+    let translations = i18nData.es;
+    let cart = JSON.parse(localStorage.getItem('ropax_cart')) || [];
+
+    function applyTranslations() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (translations[k]) el.textContent = translations[k];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const k = el.getAttribute('data-i18n-placeholder');
+        if (translations[k]) el.placeholder = translations[k];
+      });
+      const wf = document.getElementById('wpp-float');
+      if (wf && translations.wpp_float_msg) {
+        wf.href = 'https://wa.me/593939675278?text=' + encodeURIComponent(translations.wpp_float_msg);
+      }
+    }
+
+    async function loadLanguage(lang) {
+      try {
+        // Intentar cargar desde el archivo JSON si estamos en un servidor
+        const response = await fetch(`${lang}.json`);
+        if (response.ok) {
+          const data = await response.json();
+          translations = data;
+        } else {
+          // Fallback a los datos inline si el fetch falla (ej. apertura local file://)
+          if (i18nData[lang]) translations = i18nData[lang];
+        }
+      } catch (err) {
+        console.warn("Could not load JSON file, falling back to inline data.");
+        if (i18nData[lang]) translations = i18nData[lang];
+      }
+
+      currentLang = lang;
+      applyTranslations();
+      localStorage.setItem('ropax_lang', lang);
+      document.getElementById('lang-switcher').value = lang;
+    }
+
+    document.getElementById('lang-switcher').addEventListener('change', e => loadLanguage(e.target.value));
+
+    // ─── CART ───
+    const cartBtn = document.getElementById('cart-btn');
+    const closeCart = document.getElementById('close-cart');
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartOverlay = document.getElementById('cart-overlay');
+    const cartContainer = document.getElementById('cart-items-container');
+    const cartCountBadge = document.querySelector('.cart-count');
+    const cartTotalVal = document.getElementById('cart-total-value');
+    const genOrderBtn = document.getElementById('generate-order');
+
+    function toggleCart() {
+      cartDrawer.classList.toggle('active');
+      cartOverlay.classList.toggle('active');
+      document.body.style.overflow = cartDrawer.classList.contains('active') ? 'hidden' : '';
+    }
+
+    cartBtn.addEventListener('click', toggleCart);
+    closeCart.addEventListener('click', toggleCart);
+    cartOverlay.addEventListener('click', toggleCart);
+
+    function saveCart() { localStorage.setItem('ropax_cart', JSON.stringify(cart)); }
+
+    function updateCartCount() {
+      const n = cart.reduce((s, i) => s + i.qty, 0);
+      cartCountBadge.textContent = n;
+    }
+
+    function renderCart() {
+      updateCartCount();
+      if (!cart.length) {
+        cartContainer.innerHTML = `<p class="cart-empty-msg">${translations.cart_empty || 'Tu carrito está vacío'}</p>`;
+        cartTotalVal.textContent = 'USD$ 0,00';
+        return;
+      }
+      cartContainer.innerHTML = '';
+      let total = 0;
+      cart.forEach((item, i) => {
+        total += item.price * item.qty;
+        const d = document.createElement('div');
+        d.className = 'cart-item';
+        d.innerHTML = `
+      <div style="width:70px;height:70px;border-radius:6px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--amber);opacity:0.5;"><i class="fas fa-tshirt"></i></div>
+      <div class="cart-item-info">
+        <h4 class="cart-item-title">${item.name}</h4>
+        <div class="cart-item-price">USD$ ${item.price.toFixed(2).replace('.', ',')}</div>
+        <div class="cart-item-qty">
+          <button class="qty-btn minus" data-index="${i}">−</button>
+          <span>${item.qty}</span>
+          <button class="qty-btn plus"  data-index="${i}">+</button>
+        </div>
+      </div>
+      <button class="remove-item" data-index="${i}"><i class="fas fa-trash-can"></i></button>`;
+        cartContainer.appendChild(d);
+      });
+      cartTotalVal.textContent = `USD$ ${total.toFixed(2).replace('.', ',')}`;
+
+      cartContainer.querySelectorAll('.plus').forEach(b => b.onclick = e => { cart[+b.dataset.index].qty++; saveCart(); renderCart(); });
+      cartContainer.querySelectorAll('.minus').forEach(b => b.onclick = e => {
+        const idx = +b.dataset.index;
+        if (cart[idx].qty > 1) { cart[idx].qty--; } else { cart.splice(idx, 1); }
+        saveCart(); renderCart();
+      });
+      cartContainer.querySelectorAll('.remove-item').forEach(b => b.onclick = e => { cart.splice(+b.dataset.index, 1); saveCart(); renderCart(); });
+    }
+
+    document.addEventListener('click', e => {
+      const btn = e.target.closest('.add-to-cart');
+      if (!btn) return;
+      const card = btn.closest('.product-card');
+      const p = { id: card.dataset.id, name: card.dataset.name, price: parseFloat(card.dataset.price) };
+      const ex = cart.find(i => i.id === p.id);
+      if (ex) ex.qty++; else cart.push({ ...p, qty: 1 });
+      saveCart(); renderCart();
+      // Flash feedback
+      btn.style.background = '#1da851';
+      setTimeout(() => btn.style.background = '', 600);
+    });
+
+    genOrderBtn.addEventListener('click', () => {
+      if (!cart.length) return;
+      let msg = (translations.msg_cart_intro || 'Hola! Quisiera hacer el siguiente pedido:') + '\n\n';
+      let total = 0;
+      cart.forEach(item => {
+        const sub = item.price * item.qty; total += sub;
+        msg += `• ${item.qty}x ${item.name} - USD$ ${sub.toFixed(2).replace('.', ',')}\n`;
+      });
+      msg += `\n${translations.msg_cart_total || 'Total:'} USD$ ${total.toFixed(2).replace('.', ',')}`;
+      msg += `\n\n${translations.msg_cart_footer || ''}`;
+      window.open('https://wa.me/593939675278?text=' + encodeURIComponent(msg), '_blank');
+      cart = []; saveCart(); renderCart();
+      setTimeout(() => { if (cartDrawer.classList.contains('active')) toggleCart(); }, 600);
+    });
+
+    // ─── FILTER TABS ───
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('.product-card').forEach(card => {
+          const cat = card.dataset.category || '';
+          const show = filter === 'all' || cat === filter;
+          card.style.display = show ? 'block' : 'none';
+        });
+      });
+    });
+
+    // ─── SEARCH ───
+    document.getElementById('product-search').addEventListener('input', e => {
+      const q = e.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      document.querySelectorAll('.product-card').forEach(card => {
+        const n = card.dataset.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        card.style.display = n.includes(q) ? 'block' : 'none';
+      });
+      const moreWrap = document.getElementById('show-more-products')?.closest('.fade-in');
+      if (moreWrap) moreWrap.style.display = q ? 'none' : 'block';
+    });
+
+    // ─── SHOW MORE ───
+    document.getElementById('show-more-products').addEventListener('click', () => {
+      document.querySelectorAll('.product-card.extra-product').forEach(c => {
+        c.style.display = 'block';
+        c.classList.add('shown');
+        setTimeout(() => c.classList.add('visible'), 50);
+      });
+      document.getElementById('show-more-products').closest('.fade-in').style.display = 'none';
+    });
+
+    // ─── NAVBAR SCROLL ───
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
+
+    // ─── HAMBURGER ───
+    const hamburger = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      const [s1, , s3] = hamburger.querySelectorAll('span');
+      hamburger.querySelectorAll('span')[1].style.opacity = open ? '0' : '1';
+      s1.style.transform = open ? 'rotate(45deg) translate(5px,5px)' : '';
+      s3.style.transform = open ? 'rotate(-45deg) translate(5px,-5px)' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }));
+
+    // ─── FADE IN ───
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.products-grid .fade-in, .benefits-grid .fade-in, .testimonials-grid .fade-in').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 90}ms`;
+    });
+
+    // Stagger custom steps
+    document.querySelectorAll('.custom-step').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 150}ms`;
+      observer.observe(el);
+    });
+
+    // ─── FORM ───
+    document.getElementById('appointment-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('user-name').value;
+      const phone = document.getElementById('user-phone').value;
+      const sel = document.getElementById('user-service');
+      const service = sel.options[sel.selectedIndex].text;
+      const msg = document.getElementById('user-msg').value;
+      const text = `${translations.msg_appt_intro || 'Hola! Me gustaría solicitar información:'}\n\n`
+        + `• *${translations.msg_appt_name || 'Nombre'}:* ${name}\n`
+        + `• *${translations.msg_appt_phone || 'WhatsApp'}:* ${phone}\n`
+        + `• *${translations.msg_appt_service || 'Servicio'}:* ${service}\n`
+        + `• *${translations.msg_appt_message || 'Mensaje'}:* ${msg || (translations.msg_appt_no_msg || 'Sin mensaje')}`;
+      window.open('https://wa.me/593939675278?text=' + encodeURIComponent(text), '_blank');
+      e.target.reset();
+    });
+
+    // ─── BEFORE & AFTER SLIDER ───
+    const comparison = document.getElementById('image-comparison');
+    if (comparison) {
+      const afterEl = comparison.querySelector('.image-comparison__after');
+      const sliderEl = comparison.querySelector('.image-comparison__slider');
+      let isDragging = false;
+
+      const move = (e) => {
+        if (!isDragging) return;
+        const rect = comparison.getBoundingClientRect();
+        let x = (e.pageX || e.touches?.[0]?.pageX || 0) - rect.left - window.scrollX;
+        x = Math.max(0, Math.min(x, rect.width));
+        const pct = (x / rect.width) * 100;
+        afterEl.style.clipPath = `inset(0 0 0 ${pct}%)`;
+        sliderEl.style.left = `${pct}%`;
+      };
+
+      sliderEl.addEventListener('mousedown', e => { e.preventDefault(); isDragging = true; comparison.classList.add('dragging'); });
+      sliderEl.addEventListener('touchstart', e => { isDragging = true; comparison.classList.add('dragging'); }, { passive: false });
+      window.addEventListener('mousemove', move);
+      window.addEventListener('touchmove', e => { if (isDragging && e.cancelable) e.preventDefault(); move(e); }, { passive: false });
+      window.addEventListener('mouseup', () => { isDragging = false; comparison.classList.remove('dragging'); });
+      window.addEventListener('touchend', () => { isDragging = false; comparison.classList.remove('dragging'); });
+
+      document.getElementById('ba-prev').addEventListener('click', e => { e.stopPropagation(); afterEl.style.clipPath = 'inset(0 0 0 50%)'; sliderEl.style.left = '50%'; });
+      document.getElementById('ba-next').addEventListener('click', e => { e.stopPropagation(); afterEl.style.clipPath = 'inset(0 0 0 50%)'; sliderEl.style.left = '50%'; });
+    }
+
+    // ─── INIT ───
+    const savedLang = localStorage.getItem('ropax_lang') || 'es';
+    loadLanguage(savedLang);
+    renderCart();
+    // --- REDESIGN EFFECT ---
+    const redesignContainer = document.getElementById('redesign-container');
+    if (redesignContainer) {
+      const redesignOverlay = redesignContainer.querySelector('.redesign-overlay');
+
+      redesignContainer.addEventListener('mousemove', (e) => {
+        const rect = redesignContainer.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        redesignOverlay.style.clipPath = `circle(120px at ${x}% ${y}%)`;
+      });
+
+      redesignContainer.addEventListener('mouseleave', () => {
+        redesignOverlay.style.clipPath = `circle(0% at 50% 50%)`;
+      });
+
+      // Soporte para touch
+      redesignContainer.addEventListener('touchmove', (e) => {
+        const rect = redesignContainer.getBoundingClientRect();
+        const touch = e.touches[0];
+        const x = ((touch.clientX - rect.left) / rect.width) * 100;
+        const y = ((touch.clientY - rect.top) / rect.height) * 100;
+        redesignOverlay.style.clipPath = `circle(100px at ${x}% ${y}%)`;
+      }, { passive: true });
+    }
+  </script>
+</body>
+
+</html>
