@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RopaX — Header Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0F0A04;
+      --cream: #F8F3EC;
+      --amber: #C8841A;
+      --amber-glow: rgba(200,132,26,0.18);
+      --amber-mid: #E09B30;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Outfit', system-ui, sans-serif;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: #0F0A04;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ───── TOP TICKER ───── */
+    #ticker {
+      background: var(--amber);
+      padding: 7px 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 110;
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 0;
+      white-space: nowrap;
+      animation: ticker-scroll 28s linear infinite;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 40px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .ticker-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.55);
+      flex-shrink: 0;
+    }
+
+    @keyframes ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ───── NAVBAR PRINCIPAL ───── */
+    #navbar {
+      position: fixed;
+      top: 32px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: top 0.4s var(--ease);
+    }
+
+    #navbar.ticker-hidden { top: 0; }
+
+    .nav-shell {
+      margin: 12px 20px;
+      background: rgba(15,10,4,0.55);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(200,132,26,0.18);
+      border-radius: 100px;
+      padding: 0 8px 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      transition: all 0.45s var(--ease);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset,
+                  0 8px 40px rgba(0,0,0,0.45),
+                  0 0 80px rgba(200,132,26,0.06);
+    }
+
+    #navbar.scrolled .nav-shell {
+      background: rgba(10,6,2,0.88);
+      border-color: rgba(200,132,26,0.28);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset,
+                  0 12px 60px rgba(0,0,0,0.6),
+                  0 0 120px rgba(200,132,26,0.10);
+    }
+
+    /* Logo */
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      position: relative;
+      padding: 16px 0;
+      flex-shrink: 0;
+    }
+
+    .nav-logo span {
+      background: linear-gradient(135deg, #fff 30%, var(--amber-mid) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-logo::after {
+      content: '®';
+      position: absolute;
+      top: 14px;
+      right: -14px;
+      font-size: 9px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      background: none;
+      -webkit-text-fill-color: rgba(200,132,26,0.7);
+      color: rgba(200,132,26,0.7);
+    }
+
+    /* Centro del nav */
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-link {
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.70);
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 50px;
+      transition: all 0.3s var(--ease);
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      color: var(--white);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .nav-link.has-drop::after {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-right: 1.2px solid currentColor;
+      border-bottom: 1.2px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      margin-left: 6px;
+      opacity: 0.6;
+      vertical-align: middle;
+    }
+
+    /* Separador decorativo */
+    .nav-sep {
+      width: 1px;
+      height: 16px;
+      background: rgba(255,255,255,0.1);
+      margin: 0 6px;
+      flex-shrink: 0;
+    }
+
+    /* Derecha: acciones */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .nav-icon-btn {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.65);
+      font-size: 15px;
+      border-radius: 50%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+
+    .nav-icon-btn:hover {
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      min-width: 16px;
+      height: 16px;
+      background: var(--amber);
+      color: var(--white);
+      font-size: 9px;
+      font-weight: 600;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 3px;
+      border: 1.5px solid rgba(15,10,4,0.7);
+    }
+
+    /* Botón CTA principal */
+    .btn-nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      background: var(--amber);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.35s var(--ease);
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .btn-nav-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .btn-nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 28px rgba(200,132,26,0.50);
+    }
+
+    .btn-nav-cta:hover::before { opacity: 1; }
+
+    /* ───── DROPDOWN MEGAMENU ───── */
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: rgba(12,7,2,0.97);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(200,132,26,0.18);
+      border-radius: 20px;
+      padding: 20px;
+      min-width: 240px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.35s var(--ease);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04) inset;
+    }
+
+    .nav-item:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 12px;
+      padding: 0 8px;
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 8px;
+      border-radius: 10px;
+      color: rgba(255,255,255,0.70);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      transition: all 0.25s var(--ease);
+    }
+
+    .dropdown-item:hover {
+      background: rgba(200,132,26,0.12);
+      color: var(--white);
+    }
+
+    .dropdown-item i {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(200,132,26,0.12);
+      border-radius: 8px;
+      font-size: 12px;
+      color: var(--amber);
+      flex-shrink: 0;
+    }
+
+    .dropdown-item:hover i {
+      background: var(--amber);
+      color: var(--white);
+    }
+
+    /* ───── HAMBURGER ───── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: rgba(255,255,255,0.75);
+      border-radius: 2px;
+      transition: all 0.35s var(--ease);
+      transform-origin: center;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+    /* ───── MOBILE MENU ───── */
+    #mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(8,5,1,0.98);
+      backdrop-filter: blur(20px);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.04);
+      transition: all 0.45s var(--ease);
+    }
+
+    #mobile-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    .mob-link {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 600;
+      font-style: italic;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      padding: 8px 24px;
+      transition: all 0.3s var(--ease);
+      letter-spacing: -0.01em;
+    }
+
+    .mob-link:hover { color: var(--white); }
+
+    .mob-wpp {
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: #25D366;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      text-decoration: none;
+    }
+
+    .mob-close-line {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.2);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .mob-close-line::before,
+    .mob-close-line::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    /* ───── HERO (demo) ───── */
+    .hero-demo {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,132,26,0.12) 0%, transparent 70%),
+        linear-gradient(180deg, #0F0A04 0%, #1A1007 60%, #0F0A04 100%);
+      padding: 140px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-demo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect x='29' y='29' width='2' height='2' rx='1' fill='rgba(200,132,26,0.06)'/%3E%3C/svg%3E") repeat;
+    }
+
+    .hero-text {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,132,26,0.10);
+      border: 1px solid rgba(200,132,26,0.25);
+      border-radius: 50px;
+      padding: 7px 18px;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber-mid);
+      margin-bottom: 28px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .hero-title strong {
+      font-weight: 700;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 300;
+      background: linear-gradient(135deg, var(--amber-mid) 0%, #F0C060 50%, var(--amber) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.04em;
+      margin-top: 20px;
+    }
+
+    /* ───── RESPONSIVE ───── */
+    @media (max-width: 900px) {
+      .nav-center, .nav-sep { display: none; }
+      .hamburger { display: flex; }
+      .btn-nav-cta { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-shell { margin: 8px 12px; padding: 0 4px 0 20px; }
+      .nav-logo { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TICKER ── -->
+  <div id="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot"></span> Envío express a todo Ecuador</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Diseños 100% personalizados</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Más de 1.800 clientes satisfechos</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> 15 días de cambios sin costo</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Calidad garantizada en cada prenda</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Atención personalizada 24/7</span>
+      <!-- Duplicate for loop -->
+      <span class="ticker-item"><span class="ticker-dot"></span> Envío express a todo Ecuador</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Diseños 100% personalizados</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Más de 1.800 clientes satisfechos</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> 15 días de cambios sin costo</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Calidad garantizada en cada prenda</span>
+      <span class="ticker-item"><span class="ticker-dot"></span> Atención personalizada 24/7</span>
+    </div>
+  </div>
+
+  <!-- ── NAVBAR ── -->
+  <header>
+    <nav id="navbar" role="navigation">
+      <div class="nav-shell">
+
+        <!-- Logo -->
+        <a href="#" class="nav-logo" aria-label="RopaX inicio"><span>RopaX</span></a>
+
+        <!-- Links centro -->
+        <div class="nav-center" role="list">
+
+          <div class="nav-item">
+            <a href="#about" class="nav-link">Nosotros</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="#products" class="nav-link has-drop">Productos</a>
+            <div class="nav-dropdown">
+              <div class="dropdown-label">Categorías</div>
+              <a href="#products" class="dropdown-item">
+                <i class="fas fa-tshirt"></i>
+                <div>
+                  <div style="font-weight:500;color:rgba(255,255,255,0.90);">Casual</div>
+                  <div style="font-size:11px;color:rgba(255,255,255,0.40);margin-top:2px;">Ropa para el día a día</div>
+                </div>
+              </a>
+              <a href="#products" class="dropdown-item">
+                <i class="fas fa-shirt"></i>
+                <div>
+                  <div style="font-weight:500;color:rgba(255,255,255,0.90);">Elegante</div>
+                  <div style="font-size:11px;color:rgba(255,255,255,0.40);margin-top:2px;">Para cada ocasión especial</div>
+                </div>
+              </a>
+              <a href="#products" class="dropdown-item">
+                <i class="fas fa-dumbbell"></i>
+                <div>
+                  <div style="font-weight:500;color:rgba(255,255,255,0.90);">Deportivo</div>
+                  <div style="font-size:11px;color:rgba(255,255,255,0.40);margin-top:2px;">Rendimiento y estilo</div>
+                </div>
+              </a>
+              <a href="#custom-design" class="dropdown-item">
+                <i class="fas fa-pen-nib"></i>
+                <div>
+                  <div style="font-weight:500;color:rgba(255,255,255,0.90);">Custom</div>
+                  <div style="font-size:11px;color:rgba(255,255,255,0.40);margin-top:2px;">Tu diseño, tu identidad</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a href="#custom-design" class="nav-link">Diseño Custom</a>
+          </div>
+
+          <div class="nav-sep"></div>
+
+          <div class="nav-item">
+            <a href="#benefits" class="nav-link">Beneficios</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="#testimonials" class="nav-link">Reseñas</a>
+          </div>
+
+          <div class="nav-item">
+            <a href="#appointments" class="nav-link">Contacto</a>
+          </div>
+
+        </div>
+
+        <!-- Acciones -->
+        <div class="nav-actions">
+
+          <select style="background:transparent;border:none;color:rgba(255,255,255,0.45);font-family:var(--font-body);font-size:11px;cursor:pointer;outline:none;padding:4px 2px;">
+            <option value="es" style="background:#0F0A04;">ES</option>
+            <option value="en" style="background:#0F0A04;">EN</option>
+            <option value="pt" style="background:#0F0A04;">PT</option>
+          </select>
+
+          <button class="nav-icon-btn" aria-label="Buscar" title="Buscar">
+            <i class="fas fa-search"></i>
+          </button>
+
+          <button class="nav-icon-btn" id="cart-btn" aria-label="Carrito" title="Carrito">
+            <i class="fas fa-bag-shopping"></i>
+            <span class="cart-badge">3</span>
+          </button>
+
+          <a href="https://wa.me/593939675278" class="btn-nav-cta" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp
+          </a>
+
+          <button class="hamburger" id="hamburger-btn" aria-label="Menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── MOBILE MENU ── -->
+  <div id="mobile-menu" role="dialog" aria-label="Menú de navegación">
+    <a href="#about" class="mob-link">Nosotros</a>
+    <a href="#products" class="mob-link">Productos</a>
+    <a href="#custom-design" class="mob-link">Diseño Custom</a>
+    <a href="#benefits" class="mob-link">Beneficios</a>
+    <a href="#testimonials" class="mob-link">Reseñas</a>
+    <a href="#appointments" class="mob-link">Contacto</a>
+    <a href="https://wa.me/593939675278" class="mob-wpp" target="_blank" rel="noopener">
+      <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+    </a>
+    <div class="mob-close-line">Cerrar menú</div>
+  </div>
+
+  <!-- ── HERO DEMO ── -->
+  <main>
+    <section class="hero-demo">
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <i class="fas fa-scissors" style="font-size:10px;"></i>
+          Diseños 100% Personalizados
+        </div>
+        <h1 class="hero-title">
+          <strong>Ropa</strong><br>
+          <em>que define</em><br>
+          <strong>tu estilo</strong>
+        </h1>
+        <p class="hero-sub">Montecristi, Ecuador · Est. 2020</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const ticker = document.getElementById('ticker');
+    const hamburger = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Scroll: ocultar ticker y encoger navbar
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY > 20;
+      navbar.classList.toggle('scrolled', scrolled);
+      navbar.classList.toggle('ticker-hidden', scrolled);
+      if (scrolled && ticker) {
+        ticker.style.transform = `translateY(-100%)`;
+        ticker.style.opacity = '0';
+        ticker.style.transition = 'all 0.4s ease';
+      } else if (ticker) {
+        ticker.style.transform = '';
+        ticker.style.opacity = '1';
+      }
+    }, { passive: true });
+
+    // Hamburger
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    mobileMenu.querySelectorAll('.mob-link').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+</body>
+</html>
