@@ -355,9 +355,38 @@
       font-style: italic;
       font-weight: 400;
       display: block;
-      font-size: 0.72em;
+      font-size: 0.5em;
       opacity: 0.80;
       letter-spacing: 0.01em;
+      position: relative;
+      min-height: 1.2em;
+      margin: 0.5em 0;
+    }
+
+    .hero-title em::after {
+      content: '|';
+      display: inline-block;
+      margin-left: 4px;
+      color: var(--amber);
+      opacity: 0;
+      font-style: normal;
+    }
+
+    .hero-title em.typing::after {
+      opacity: 1;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+
+      from,
+      to {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
     }
 
     .hero-sub {
@@ -441,6 +470,8 @@
 
     .hero-content {
       animation: slideFromLeft 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+      top: -3em;
+      position: relative;
     }
 
     .hero-visual {
@@ -716,7 +747,7 @@
     .about-imgs.redesign-active .redesign-overlay img {
       position: absolute;
       left: 2px;
-    top: -5px;
+      top: -5px;
       width: 98%;
       height: 106%;
       object-fit: contain;
@@ -2520,13 +2551,13 @@
     <div class="container">
       <div class="hero-inner">
         <div class="hero-content">
-          <div class="hero-badge">
+          <!-- <div class="hero-badge">
             <i class="fas fa-scissors"></i>
             <span data-i18n="hero_badge">Diseños 100% Personalizados</span>
-          </div>
+          </div> -->
           <h1 class="hero-title">
             RopaX
-            <em data-i18n="hero_title_sub">Moda que define tu estilo</em>
+            <em data-i18n="hero_title_sub" data-typewriter="true"></em>
           </h1>
           <p class="hero-sub" data-i18n="hero_sub">
             Ropa original y diseños únicos creados para ti. Calidad, estilo y personalización en cada prenda.
@@ -2557,31 +2588,39 @@
                 <div class="marquee-item"><img src="img/clothes4.png" alt="Fashion 4"></div>
                 <div class="marquee-item"><img src="img/clothes5.png" alt="Fashion 5"></div>
                 <div class="marquee-item"><img src="img/clothes6.png" alt="Fashion 6"></div>
+                <div class="marquee-item"><img src="img/clothes7.png" alt="Fashion 7"></div>
+                <div class="marquee-item"><img src="img/clothes8.png" alt="Fashion 8"></div>
                 <!-- Duplicate for seamless loop -->
-                <div class="marquee-item"><img src="img/clothes7.png" alt="Fashion 1"></div>
-                <div class="marquee-item"><img src="img/clothes8.png" alt="Fashion 2"></div>
-                <div class="marquee-item"><img src="img/clothes1.png" alt="Fashion 3"></div>
-                <div class="marquee-item"><img src="img/clothes2.png" alt="Fashion 4"></div>
-                <div class="marquee-item"><img src="img/clothes3.png" alt="Fashion 5"></div>
-                <div class="marquee-item"><img src="img/clothes4.png" alt="Fashion 6"></div>
+                <div class="marquee-item"><img src="img/clothes1.png" alt="Fashion 1"></div>
+                <div class="marquee-item"><img src="img/clothes2.png" alt="Fashion 2"></div>
+                <div class="marquee-item"><img src="img/clothes3.png" alt="Fashion 3"></div>
+                <div class="marquee-item"><img src="img/clothes4.png" alt="Fashion 4"></div>
+                <div class="marquee-item"><img src="img/clothes5.png" alt="Fashion 5"></div>
+                <div class="marquee-item"><img src="img/clothes6.png" alt="Fashion 6"></div>
+                <div class="marquee-item"><img src="img/clothes7.png" alt="Fashion 7"></div>
+                <div class="marquee-item"><img src="img/clothes8.png" alt="Fashion 8"></div>
               </div>
             </div>
             <!-- Columna 2: Baja -->
             <div class="marquee-col marquee-down">
               <div class="marquee-content">
-                <div class="marquee-item"><img src="img/clothes1.png" alt="Fashion 7"></div>
-                <div class="marquee-item"><img src="img/clothes2.png" alt="Fashion 8"></div>
-                <div class="marquee-item"><img src="img/clothes3.png" alt="Fashion 9"></div>
-                <div class="marquee-item"><img src="img/clothes4.png" alt="Fashion 10"></div>
-                <div class="marquee-item"><img src="img/clothes5.png" alt="Fashion 11"></div>
-                <div class="marquee-item"><img src="img/clothes6.png" alt="Fashion 12"></div>
-                <!-- Duplicate for seamless loop -->
-                <div class="marquee-item"><img src="img/clothes7.png" alt="Fashion 7"></div>
                 <div class="marquee-item"><img src="img/clothes8.png" alt="Fashion 8"></div>
-                <div class="marquee-item"><img src="img/clothes1.png" alt="Fashion 9"></div>
-                <div class="marquee-item"><img src="img/clothes2.png" alt="Fashion 10"></div>
-                <div class="marquee-item"><img src="img/clothes3.png" alt="Fashion 11"></div>
-                <div class="marquee-item"><img src="img/clothes4.png" alt="Fashion 12"></div>
+                <div class="marquee-item"><img src="img/clothes7.png" alt="Fashion 7"></div>
+                <div class="marquee-item"><img src="img/clothes6.png" alt="Fashion 6"></div>
+                <div class="marquee-item"><img src="img/clothes5.png" alt="Fashion 5"></div>
+                <div class="marquee-item"><img src="img/clothes4.png" alt="Fashion 4"></div>
+                <div class="marquee-item"><img src="img/clothes3.png" alt="Fashion 3"></div>
+                <div class="marquee-item"><img src="img/clothes2.png" alt="Fashion 2"></div>
+                <div class="marquee-item"><img src="img/clothes1.png" alt="Fashion 1"></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-item"><img src="img/clothes8.png" alt="Fashion 8"></div>
+                <div class="marquee-item"><img src="img/clothes7.png" alt="Fashion 7"></div>
+                <div class="marquee-item"><img src="img/clothes6.png" alt="Fashion 6"></div>
+                <div class="marquee-item"><img src="img/clothes5.png" alt="Fashion 5"></div>
+                <div class="marquee-item"><img src="img/clothes4.png" alt="Fashion 4"></div>
+                <div class="marquee-item"><img src="img/clothes3.png" alt="Fashion 3"></div>
+                <div class="marquee-item"><img src="img/clothes2.png" alt="Fashion 2"></div>
+                <div class="marquee-item"><img src="img/clothes1.png" alt="Fashion 1"></div>
               </div>
             </div>
           </div>
@@ -3272,10 +3311,60 @@
     let translations = {};
     let cart = JSON.parse(localStorage.getItem('ropax_cart')) || [];
 
+    let typewriterTimeout;
+    function typeWriter(element, text, speed = 100) {
+      clearTimeout(typewriterTimeout);
+      let i = 0;
+      let isDeleting = false;
+
+      function step() {
+        if (!element) return;
+        element.classList.add('typing');
+
+        if (isDeleting) {
+          element.textContent = text.substring(0, i);
+          i--;
+        } else {
+          element.textContent = text.substring(0, i);
+          i++;
+        }
+
+        if (!isDeleting && i > text.length) {
+          isDeleting = true;
+          element.classList.remove('typing');
+          typewriterTimeout = setTimeout(step, 3000); // Pausa cuando termina de escribir
+        } else if (isDeleting && i < 0) {
+          isDeleting = false;
+          i = 0;
+          element.classList.remove('typing');
+          typewriterTimeout = setTimeout(step, 800); // Pausa antes de volver a empezar
+        } else {
+          const nextSpeed = isDeleting ? 50 : speed;
+          typewriterTimeout = setTimeout(step, nextSpeed);
+        }
+      }
+
+      element.textContent = '';
+      typewriterTimeout = setTimeout(step, 500);
+    }
+
+    let typewriterStarted = false;
     function applyTranslations() {
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const k = el.getAttribute('data-i18n');
-        if (translations[k]) el.textContent = translations[k];
+        if (translations[k]) {
+          if (el.dataset.typewriter === 'true') {
+            // Solo empezamos si el preloader ya se fue
+            if (typewriterStarted) {
+              typeWriter(el, translations[k]);
+            } else {
+              // Guardamos el texto para cuando estemos listos
+              el.dataset.pendingText = translations[k];
+            }
+          } else {
+            el.textContent = translations[k];
+          }
+        }
       });
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const k = el.getAttribute('data-i18n-placeholder');
@@ -3579,6 +3668,14 @@
             setTimeout(() => {
               preloader.style.display = 'none';
               document.body.style.overflow = '';
+              // Iniciar efecto de máquina de escribir ahora que el preloader se fue
+              typewriterStarted = true;
+              document.querySelectorAll('[data-typewriter="true"]').forEach(el => {
+                if (el.dataset.pendingText) {
+                  typeWriter(el, el.dataset.pendingText);
+                  delete el.dataset.pendingText;
+                }
+              });
             }, 1800);
           }, 600);
         }, 4500); // Intro más larga para apreciar el estilo cinematográfico
