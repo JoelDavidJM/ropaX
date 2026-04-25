@@ -1042,7 +1042,7 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      border: 1px solid rgba(0, 0, 0, 0.04);
+      border: 1px solid rgb(0 0 0 / 28%);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     }
 
@@ -1063,7 +1063,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 30px;
     }
 
     .product-img-wrap img {
@@ -2026,14 +2025,16 @@
       left: 0;
       z-index: 1;
       clip-path: polygon(0 0, calc(52% - 2px) 0, calc(44% - 2px) 100%, 0 100%);
-      background: #EAE1D3; /* Fallback for transparency */
+      background: #EAE1D3;
+      /* Fallback for transparency */
     }
 
     .ba-after {
       left: 0;
       z-index: 1;
       clip-path: polygon(calc(52% + 2px) 0, 100% 0, 100% 100%, calc(44% + 2px) 100%);
-      background: #2C2C2A; /* Fallback for transparency */
+      background: #2C2C2A;
+      /* Fallback for transparency */
     }
 
     .ba-center-badge {
@@ -2097,7 +2098,7 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       max-width: 290px;
       z-index: 10;
     }
@@ -2133,7 +2134,7 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     .ba-box-text h4 {
       font-size: 0.7rem;
       font-weight: 700;
@@ -2446,6 +2447,8 @@
       z-index: 5;
     }
 
+
+
     .appointments-info .contact-item-box {
       background: var(--white);
       padding: 10px 22px;
@@ -2500,7 +2503,6 @@
       height: 600px;
       transform: translateY(-50%);
       pointer-events: none;
-      z-index: -2;
     }
 
     .photo-card {
@@ -3288,6 +3290,14 @@
       .hamburger {
         display: flex;
       }
+
+      .floating-photos {
+        display: none;
+      }
+
+      .appointments-grid {
+        gap: 0px;
+      }
     }
 
     /* El resto de elementos siguen cambiando a los 768px como antes */
@@ -3522,8 +3532,9 @@
             <li><a href="#about" data-i18n="nav_about">Nosotros</a></li>
             <li><a href="#products" data-i18n="nav_products">Productos</a></li>
             <li><a href="#benefits" data-i18n="nav_benefits">Beneficios</a></li>
-            <li><a href="#testimonials" data-i18n="nav_testimonials">Reseñas</a></li>
+            <li><a href="#before-after" data-i18n="nav_designs">Diseños</a></li>
             <li><a href="#appointments" data-i18n="nav_appointments">Contacto</a></li>
+            <li><a href="#testimonials" data-i18n="nav_testimonials">Reseñas</a></li>
             <li><a href="https://wa.me/593939675278" class="nav-cta"><i class="fab fa-whatsapp"></i> <span
                   data-i18n="nav_whatsapp">WhatsApp</span></a></li>
           </ul>
@@ -3551,8 +3562,9 @@
         <a href="#about" data-i18n="nav_about">Nosotros</a>
         <a href="#products" data-i18n="nav_products">Productos</a>
         <a href="#benefits" data-i18n="nav_benefits">Beneficios</a>
-        <a href="#testimonials" data-i18n="nav_testimonials">Reseñas</a>
+        <a href="#before-after" data-i18n="nav_designs">Diseños</a>
         <a href="#appointments" data-i18n="nav_appointments">Contacto</a>
+        <a href="#testimonials" data-i18n="nav_testimonials">Reseñas</a>
         <a href="https://wa.me/593939675278"><i class="fab fa-whatsapp"></i> &nbsp;<span
             data-i18n="nav_whatsapp">WhatsApp</span></a>
       </div>
@@ -4036,60 +4048,6 @@
     </div>
   </section>
 
-  <!-- ── TESTIMONIALS ── -->
-  <section id="testimonials">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label" data-i18n="reviews_label">Clientes satisfechos</p>
-        <h2 class="section-title" data-i18n="reviews_title">Lo que dicen <em>nuestros clientes</em></h2>
-        <p data-i18n="reviews_sub">Más de 1.800 personas ya confían en RopaX para su moda y diseños personalizados.</p>
-      </div>
-      <div class="testimonials-grid">
-        <article class="testimonial-card fade-in">
-          <div class="t-stars">★★★★★</div>
-          <p class="t-text" data-i18n="review_1">"Encargué una camiseta con el logo de mi negocio y quedé impresionada.
-            La calidad del bordado es increíble y llegó en tiempo récord. ¡Ya hice mi segundo pedido!"</p>
-          <div class="t-author">
-            <div
-              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#C9882A,#4A3520);border:3px solid var(--sand-light);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:15px;">
-              S</div>
-            <div>
-              <div class="t-name" data-i18n="review_1_author">Sofía Mendoza</div>
-              <div class="t-desc" data-i18n="review_1_time">Cliente hace 6 meses</div>
-            </div>
-          </div>
-        </article>
-        <article class="testimonial-card fade-in">
-          <div class="t-stars">★★★★★</div>
-          <p class="t-text" data-i18n="review_2">"La atención fue increíble. Me ayudaron a elegir la tela y el diseño, y
-            el resultado superó todas mis expectativas. La ropa fit perfecto y el diseño quedó hermoso."</p>
-          <div class="t-author">
-            <div
-              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#7A5C38,#C9882A);border:3px solid var(--sand-light);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:15px;">
-              C</div>
-            <div>
-              <div class="t-name" data-i18n="review_2_author">Carlos Paredes</div>
-              <div class="t-desc" data-i18n="review_2_time">Cliente hace 1 año</div>
-            </div>
-          </div>
-        </article>
-        <article class="testimonial-card fade-in">
-          <div class="t-stars">★★★★★</div>
-          <p class="t-text" data-i18n="review_3">"Compro aquí siempre. Las prendas tienen una calidad excelente y los
-            hoodies personalizados son una locura. Todo el mundo me pregunta dónde los consigo."</p>
-          <div class="t-author">
-            <div
-              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#2C1E0E,#7A5C38);border:3px solid var(--sand-light);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:15px;">
-              V</div>
-            <div>
-              <div class="t-name" data-i18n="review_3_author">Valentina Cruz</div>
-              <div class="t-desc" data-i18n="review_3_time">Cliente fiel</div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
   <!-- ── BEFORE & AFTER ── -->
   <section id="before-after">
@@ -4110,7 +4068,7 @@
         <div class="ba-side ba-after">
           <img src="img/ropa2.png" alt="Después">
         </div>
-        
+
         <div class="ba-tag ba-tag-left">ANTES</div>
         <div class="hand-drawn-arrow">
           <span>Tu idea</span>
@@ -4199,49 +4157,52 @@
   <section id="appointments">
     <div class="container">
       <div class="appointments-grid">
-        <div class="appointments-info fade-in">
-          <p class="section-label" data-i18n="contact_label">CONTÁCTANOS</p>
-          <h2 class="section-title">
-            <span data-i18n="contact_title">Haz tu pedido hoy</span>
-            <em class="cursive-sub" data-i18n="contact_title_sub">estamos para ayudarte</em>
-          </h2>
-          <p data-i18n="contact_p" class="contact-lead">Escríbenos por WhatsApp o llena el formulario y te contactamos
-            pronto. ♥</p>
+        <div class="appointments-info">
+          <div class="fade-in">
+            <p class="section-label" data-i18n="contact_label">CONTÁCTANOS</p>
+            <h2 class="section-title">
+              <span data-i18n="contact_title">Haz tu pedido hoy</span>
+              <em class="cursive-sub" data-i18n="contact_title_sub">estamos para ayudarte</em>
+            </h2>
+            <p data-i18n="contact_p" class="contact-lead">Escríbenos por WhatsApp o llena el formulario y te contactamos
+              pronto. ♥</p>
 
-          <div class="contact-items-list">
-            <div class="contact-item-box">
-              <div class="contact-icon-wrap"><i class="fas fa-location-dot"></i></div>
-              <div class="contact-text-wrap">
-                <h4 data-i18n="contact_loc_label">UBICACIÓN</h4>
-                <p>Montecristi, Manabí, Ecuador</p>
+            <div class="contact-items-list">
+              <div class="contact-item-box">
+                <div class="contact-icon-wrap"><i class="fas fa-location-dot"></i></div>
+                <div class="contact-text-wrap">
+                  <h4 data-i18n="contact_loc_label">UBICACIÓN</h4>
+                  <p>Montecristi, Manabí, Ecuador</p>
+                </div>
               </div>
-            </div>
-            <div class="contact-item-box">
-              <div class="contact-icon-wrap"><i class="fab fa-whatsapp"></i></div>
-              <div class="contact-text-wrap">
-                <h4 data-i18n="contact_wpp_label">WHATSAPP</h4>
-                <p>0939675278</p>
+              <div class="contact-item-box">
+                <div class="contact-icon-wrap"><i class="fab fa-whatsapp"></i></div>
+                <div class="contact-text-wrap">
+                  <h4 data-i18n="contact_wpp_label">WHATSAPP</h4>
+                  <p>0939675278</p>
+                </div>
               </div>
-            </div>
-            <div class="contact-item-box">
-              <div class="contact-icon-wrap"><i class="fab fa-instagram"></i></div>
-              <div class="contact-text-wrap">
-                <h4 data-i18n="contact_ig_label">INSTAGRAM</h4>
-                <p>@ropax</p>
+              <div class="contact-item-box">
+                <div class="contact-icon-wrap"><i class="fab fa-instagram"></i></div>
+                <div class="contact-text-wrap">
+                  <h4 data-i18n="contact_ig_label">INSTAGRAM</h4>
+                  <p>@ropax</p>
+                </div>
               </div>
-            </div>
-            <div class="contact-item-box">
-              <div class="contact-icon-wrap"><i class="fab fa-tiktok"></i></div>
-              <div class="contact-text-wrap">
-                <h4 data-i18n="contact_tk_label">TIKTOK</h4>
-                <p>@ropax</p>
+              <div class="contact-item-box">
+                <div class="contact-icon-wrap"><i class="fab fa-tiktok"></i></div>
+                <div class="contact-text-wrap">
+                  <h4 data-i18n="contact_tk_label">TIKTOK</h4>
+                  <p>@ropax</p>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Floating Photos -->
           <div class="floating-photos">
-            <img src="img/imageContact-remove.png" alt="Contacto RopaX" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));">
+            <img src="img/imageContact-remove.png" alt="Contacto RopaX"
+              style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));">
           </div>
         </div>
 
@@ -4289,23 +4250,57 @@
     </div>
   </section>
 
-  <!-- ── CTA ── -->
-  <section id="cta">
+  <!-- ── TESTIMONIALS ── -->
+  <section id="testimonials">
     <div class="container">
-      <div class="cta-inner fade-in">
-        <div class="cta-tag"><i class="fas fa-scissors"></i> <span data-i18n="cta_tag">Diseño Exclusivo</span></div>
-        <h2 class="cta-title" data-i18n="cta_title">¿Listo para vestir <em>a tu manera?</em></h2>
-        <p class="cta-sub" data-i18n="cta_sub">Únete a más de 1.800 personas que ya visten con estilo único. Escríbenos
-          y creamos la prenda perfecta para ti.</p>
-        <div class="cta-actions">
-          <a href="https://wa.me/593939675278?text=Hola RopaX! Quiero hacer un pedido" class="btn btn-cta-wpp"
-            target="_blank" rel="noopener">
-            <i class="fab fa-whatsapp"></i> <span data-i18n="cta_btn_wpp">Escribir por WhatsApp</span>
-          </a>
-          <a href="#products" class="btn btn-outline-white">
-            <i class="fas fa-tshirt"></i> <span data-i18n="cta_btn_catalog">Ver Catálogo</span>
-          </a>
-        </div>
+      <div class="section-header fade-in">
+        <p class="section-label" data-i18n="reviews_label">Clientes satisfechos</p>
+        <h2 class="section-title" data-i18n="reviews_title">Lo que dicen <em>nuestros clientes</em></h2>
+        <p data-i18n="reviews_sub">Más de 1.800 personas ya confían en RopaX para su moda y diseños personalizados.</p>
+      </div>
+      <div class="testimonials-grid">
+        <article class="testimonial-card fade-in">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text" data-i18n="review_1">"Encargué una camiseta con el logo de mi negocio y quedé impresionada.
+            La calidad del bordado es increíble y llegó en tiempo récord. ¡Ya hice mi segundo pedido!"</p>
+          <div class="t-author">
+            <div
+              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#C9882A,#4A3520);border:3px solid var(--sand-light);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:15px;">
+              S</div>
+            <div>
+              <div class="t-name" data-i18n="review_1_author">Sofía Mendoza</div>
+              <div class="t-desc" data-i18n="review_1_time">Cliente hace 6 meses</div>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card fade-in">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text" data-i18n="review_2">"La atención fue increíble. Me ayudaron a elegir la tela y el diseño, y
+            el resultado superó todas mis expectativas. La ropa fit perfecto y el diseño quedó hermoso."</p>
+          <div class="t-author">
+            <div
+              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#7A5C38,#C9882A);border:3px solid var(--sand-light);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:15px;">
+              C</div>
+            <div>
+              <div class="t-name" data-i18n="review_2_author">Carlos Paredes</div>
+              <div class="t-desc" data-i18n="review_2_time">Cliente hace 1 año</div>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card fade-in">
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text" data-i18n="review_3">"Compro aquí siempre. Las prendas tienen una calidad excelente y los
+            hoodies personalizados son una locura. Todo el mundo me pregunta dónde los consigo."</p>
+          <div class="t-author">
+            <div
+              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#2C1E0E,#7A5C38);border:3px solid var(--sand-light);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:15px;">
+              V</div>
+            <div>
+              <div class="t-name" data-i18n="review_3_author">Valentina Cruz</div>
+              <div class="t-desc" data-i18n="review_3_time">Cliente fiel</div>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -4335,6 +4330,7 @@
             <li><a href="#about" data-i18n="nav_about">Nosotros</a></li>
             <li><a href="#products" data-i18n="nav_products">Productos</a></li>
             <li><a href="#benefits" data-i18n="nav_benefits">Beneficios</a></li>
+            <li><a href="#before-after" data-i18n="nav_designs">Diseños</a></li>
             <li><a href="#testimonials" data-i18n="nav_testimonials">Reseñas</a></li>
           </ul>
         </div>
@@ -4741,33 +4737,57 @@
         document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         const filter = tab.dataset.filter;
+
         document.querySelectorAll('.product-card').forEach(card => {
+          const isExtra = card.classList.contains('extra-product');
+          const isShown = card.classList.contains('shown');
           const cat = card.dataset.category || '';
-          const show = filter === 'all' || cat === filter;
-          card.style.display = show ? 'block' : 'none';
+
+          if (filter === 'all') {
+            card.style.display = (!isExtra || isShown) ? 'flex' : 'none';
+          } else {
+            card.style.display = (cat === filter) ? 'flex' : 'none';
+          }
         });
+
+        const allHidden = document.querySelectorAll('.product-card.extra-product:not(.shown)');
+        const moreWrap = document.getElementById('show-more-products')?.closest('.fade-in');
+        if (moreWrap) {
+          moreWrap.style.display = (filter === 'all' && allHidden.length > 0) ? 'block' : 'none';
+        }
       });
     });
 
     // ─── SEARCH ───
     document.getElementById('product-search').addEventListener('input', e => {
       const q = e.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      if (q === '') {
+        const activeTab = document.querySelector('.filter-tab.active');
+        if (activeTab) activeTab.click();
+        return;
+      }
       document.querySelectorAll('.product-card').forEach(card => {
         const n = card.dataset.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        card.style.display = n.includes(q) ? 'block' : 'none';
+        card.style.display = n.includes(q) ? 'flex' : 'none';
       });
       const moreWrap = document.getElementById('show-more-products')?.closest('.fade-in');
-      if (moreWrap) moreWrap.style.display = q ? 'none' : 'block';
+      if (moreWrap) moreWrap.style.display = 'none';
     });
 
     // ─── SHOW MORE ───
     document.getElementById('show-more-products').addEventListener('click', () => {
-      document.querySelectorAll('.product-card.extra-product').forEach(c => {
-        c.style.display = 'block';
+      const hiddenProducts = Array.from(document.querySelectorAll('.product-card.extra-product:not(.shown)'));
+      const toShow = hiddenProducts.slice(0, 4);
+
+      toShow.forEach(c => {
+        c.style.display = 'flex';
         c.classList.add('shown');
         setTimeout(() => c.classList.add('visible'), 50);
       });
-      document.getElementById('show-more-products').closest('.fade-in').style.display = 'none';
+
+      if (hiddenProducts.length <= 4) {
+        document.getElementById('show-more-products').closest('.fade-in').style.display = 'none';
+      }
     });
 
     // ─── COLOR SWITCHER ───
@@ -4913,13 +4933,10 @@
       e.preventDefault();
       const name = document.getElementById('user-name').value;
       const phone = document.getElementById('user-phone').value;
-      const sel = document.getElementById('user-service');
-      const service = sel.options[sel.selectedIndex].text;
       const msg = document.getElementById('user-msg').value;
       const text = `${translations.msg_appt_intro || 'Hola! Me gustaría solicitar información:'}\n\n`
         + `• *${translations.msg_appt_name || 'Nombre'}:* ${name}\n`
         + `• *${translations.msg_appt_phone || 'WhatsApp'}:* ${phone}\n`
-        + `• *${translations.msg_appt_service || 'Servicio'}:* ${service}\n`
         + `• *${translations.msg_appt_message || 'Mensaje'}:* ${msg || (translations.msg_appt_no_msg || 'Sin mensaje')}`;
       window.open('https://wa.me/593939675278?text=' + encodeURIComponent(text), '_blank');
       e.target.reset();
