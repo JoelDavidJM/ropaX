@@ -1066,7 +1066,7 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
     }
 
     .product-card:hover .product-img-wrap img {
@@ -1229,11 +1229,17 @@
       border: 2px solid var(--gray-200);
       cursor: pointer;
       transition: var(--transition);
+      position: relative;
     }
 
     .color-dot:hover {
       transform: scale(1.25);
       border-color: var(--amber);
+    }
+
+    .color-dot.active {
+      border-color: var(--amber);
+      box-shadow: 0 0 0 2px var(--cream), 0 0 0 4px var(--amber);
     }
 
     /* ─── BENEFITS ─── */
@@ -2721,13 +2727,9 @@
 
         <!-- Card 1 -->
         <article class="product-card fade-in" role="listitem" data-id="1" data-name="Camiseta Oversize Premium"
-          data-price="35.00" data-img="" data-category="casual">
+          data-price="35.00" data-category="casual">
           <div class="product-img-wrap">
-            <div class="product-img-ph" style="background:linear-gradient(145deg,#EDE5D8,#D4B896);">
-              <i class="fas fa-tshirt"></i>
-              <span style="font-size:11px;color:var(--ink-light);font-weight:400;" data-i18n="prod_1_name">Camiseta
-                Oversize</span>
-            </div>
+            <img src="img/camisa1-removebg-preview.png" class="product-img" alt="Camiseta Oversize Premium">
             <span class="product-badge new" data-i18n="badge_new">Nuevo</span>
             <div class="product-actions-hover">
               <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
@@ -2740,9 +2742,9 @@
             <div class="product-cat" data-i18n="cat_casual">Casual</div>
             <h3 class="product-name" data-i18n="prod_1_name">Camiseta Oversize Premium</h3>
             <div class="product-colors">
-              <div class="color-dot" style="background:#2C1E0E;" title="Café oscuro"></div>
-              <div class="color-dot" style="background:#F7F2EC;" title="Crema"></div>
-              <div class="color-dot" style="background:#C9882A;" title="Ámbar"></div>
+              <div class="color-dot active" style="background:#2C1E0E;" data-img="img/camisa1-removebg-preview.png" title="Café oscuro"></div>
+              <div class="color-dot" style="background:#F7F2EC;" data-img="img/camisa2-removebg-preview.png" title="Crema"></div>
+              <div class="color-dot" style="background:#C9882A;" data-img="img/camisa3-removebg-preview.png" title="Ámbar"></div>
             </div>
             <div class="product-price-row" style="margin-top:10px;">
               <span class="product-price">USD$ 35,00</span>
@@ -2753,13 +2755,9 @@
 
         <!-- Card 2 -->
         <article class="product-card fade-in" role="listitem" data-id="2" data-name="Pantalón Chino Slim"
-          data-price="55.00" data-img="" data-category="elegante">
+          data-price="55.00" data-category="elegante">
           <div class="product-img-wrap">
-            <div class="product-img-ph" style="background:linear-gradient(145deg,#F4EFE8,#E4DDD3);">
-              <i class="fas fa-person"></i>
-              <span style="font-size:11px;color:var(--ink-light);font-weight:400;" data-i18n="prod_2_name">Pantalón
-                Chino</span>
-            </div>
+            <img src="img/pantalon1-removebg-preview.png" class="product-img" alt="Pantalón Chino Slim">
             <span class="product-badge" data-i18n="badge_featured">Destacado</span>
             <div class="product-actions-hover">
               <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
@@ -2772,9 +2770,9 @@
             <div class="product-cat" data-i18n="cat_elegante">Elegante</div>
             <h3 class="product-name" data-i18n="prod_2_name">Pantalón Chino Slim</h3>
             <div class="product-colors">
-              <div class="color-dot" style="background:#2C2218;" title="Charcoal"></div>
-              <div class="color-dot" style="background:#D4B896;" title="Arena"></div>
-              <div class="color-dot" style="background:#4A3B2A;" title="Café"></div>
+              <div class="color-dot active" style="background:#2C2218;" data-img="img/pantalon1-removebg-preview.png" title="Charcoal"></div>
+              <div class="color-dot" style="background:#D4B896;" data-img="img/pantalon2-removebg-preview.png" title="Arena"></div>
+              <div class="color-dot" style="background:#4A3B2A;" data-img="img/pantalon3-removebg-preview.png" title="Café"></div>
             </div>
             <div class="product-price-row" style="margin-top:10px;">
               <span class="product-price">USD$ 55,00</span>
@@ -2785,13 +2783,9 @@
 
         <!-- Card 3 -->
         <article class="product-card fade-in" role="listitem" data-id="3" data-name="Hoodie Custom Print"
-          data-price="65.00" data-img="" data-category="custom">
+          data-price="65.00" data-category="custom">
           <div class="product-img-wrap">
-            <div class="product-img-ph" style="background:linear-gradient(145deg,#2C1E0E,#4A3520);">
-              <i class="fas fa-pen-nib" style="color:rgba(201,136,42,0.7);"></i>
-              <span style="font-size:11px;color:rgba(255,255,255,0.6);font-weight:400;" data-i18n="prod_3_name">Hoodie
-                Custom</span>
-            </div>
+            <img src="img/chompa1-removebg-preview.png" class="product-img" alt="Hoodie Custom Print">
             <span class="product-badge custom">Custom</span>
             <div class="product-actions-hover">
               <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
@@ -2804,9 +2798,9 @@
             <div class="product-cat" style="color:#6B3FA0;">Custom Design</div>
             <h3 class="product-name" data-i18n="prod_3_name">Hoodie Custom Print</h3>
             <div class="product-colors">
-              <div class="color-dot" style="background:#2C2218;"></div>
-              <div class="color-dot" style="background:#F7F2EC;"></div>
-              <div class="color-dot" style="background:#6B3FA0;"></div>
+              <div class="color-dot active" style="background:#2C2218;" data-img="img/chompa1-removebg-preview.png"></div>
+              <div class="color-dot" style="background:#F7F2EC;" data-img="img/chompa2-removebg-preview.png"></div>
+              <div class="color-dot" style="background:#6B3FA0;" data-img="img/chompa3-removebg-preview.png"></div>
             </div>
             <div class="product-price-row" style="margin-top:10px;">
               <span class="product-price">USD$ 65,00</span>
@@ -2817,13 +2811,9 @@
 
         <!-- Card 4 -->
         <article class="product-card fade-in" role="listitem" data-id="4" data-name="Set Deportivo Running"
-          data-price="70.00" data-img="" data-category="deportivo">
+          data-price="70.00" data-category="deportivo">
           <div class="product-img-wrap">
-            <div class="product-img-ph" style="background:linear-gradient(145deg,#C9882A,#E8A84A);">
-              <i class="fas fa-dumbbell" style="color:rgba(255,255,255,0.5);"></i>
-              <span style="font-size:11px;color:rgba(255,255,255,0.75);font-weight:400;" data-i18n="prod_4_name">Set
-                Deportivo</span>
-            </div>
+            <img src="img/deportivo1-removebg-preview.png" class="product-img" alt="Set Deportivo Running">
             <span class="product-badge sale">-15%</span>
             <div class="product-actions-hover">
               <button class="btn-buy-card add-to-cart"><i class="fas fa-bag-shopping"></i> <span
@@ -2836,9 +2826,9 @@
             <div class="product-cat" data-i18n="cat_deportivo">Deportivo</div>
             <h3 class="product-name" data-i18n="prod_4_name">Set Deportivo Running</h3>
             <div class="product-colors">
-              <div class="color-dot" style="background:#2C2218;"></div>
-              <div class="color-dot" style="background:#C9882A;"></div>
-              <div class="color-dot" style="background:#EDE5D8;"></div>
+              <div class="color-dot active" style="background:#2C2218;" data-img="img/deportivo1-removebg-preview.png"></div>
+              <div class="color-dot" style="background:#C9882A;" data-img="img/deportivo2-removebg-preview.png"></div>
+              <div class="color-dot" style="background:#EDE5D8;" data-img="img/deportivo3-removebg-preview.png"></div>
             </div>
             <div class="product-price-row" style="margin-top:10px;">
               <span class="product-price">USD$ 59,50</span>
@@ -3523,6 +3513,26 @@
         setTimeout(() => c.classList.add('visible'), 50);
       });
       document.getElementById('show-more-products').closest('.fade-in').style.display = 'none';
+    });
+
+    // ─── COLOR SWITCHER ───
+    document.addEventListener('click', e => {
+      const dot = e.target.closest('.color-dot');
+      if (!dot || dot.classList.contains('active')) return;
+      const card = dot.closest('.product-card');
+      const img = card.querySelector('.product-img');
+      const newSrc = dot.dataset.img;
+      if (img && newSrc) {
+        // Fade effect
+        img.style.opacity = '0';
+        setTimeout(() => {
+          img.src = newSrc;
+          img.style.opacity = '1';
+          // Update active dot
+          card.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+          dot.classList.add('active');
+        }, 200);
+      }
     });
 
     // ─── NAVBAR SCROLL ───
