@@ -90,7 +90,7 @@
 
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 2rem);
       font-weight: 700;
       color: var(--ink);
       line-height: 1.15;
@@ -2409,7 +2409,7 @@
     /* ─── APPOINTMENTS ─── */
     #appointments {
       background: #F8F4EF;
-      padding: 120px 0;
+      padding: 75px 0;
       position: relative;
       overflow: hidden;
     }
@@ -2417,14 +2417,14 @@
     .appointments-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 100px;
       align-items: center;
     }
 
     .cursive-sub {
       font-family: 'Dancing Script', cursive;
       color: var(--amber);
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       display: block;
       margin-top: -10px;
       font-weight: 400;
@@ -2432,7 +2432,7 @@
 
     .contact-lead {
       margin: 20px 0 20px;
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       color: var(--ink-light);
       max-width: 400px;
     }
@@ -2440,7 +2440,7 @@
     .contact-items-list {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 15px;
+      gap: 10px;
       max-width: 320px;
       position: relative;
       z-index: 5;
@@ -2448,7 +2448,7 @@
 
     .appointments-info .contact-item-box {
       background: var(--white);
-      padding: 15px 22px;
+      padding: 10px 22px;
       border-radius: 14px;
       display: flex;
       align-items: center;
@@ -2494,9 +2494,9 @@
     /* Floating Photos */
     .floating-photos {
       position: absolute;
-      top: 50%;
-      right: 30em;
-      width: 500px;
+      top: 55%;
+      right: 32em;
+      width: 470px;
       height: 600px;
       transform: translateY(-50%);
       pointer-events: none;
@@ -3521,7 +3521,6 @@
           <ul class="nav-links" role="list">
             <li><a href="#about" data-i18n="nav_about">Nosotros</a></li>
             <li><a href="#products" data-i18n="nav_products">Productos</a></li>
-            <li><a href="#custom-design" data-i18n="nav_custom">Diseño Custom</a></li>
             <li><a href="#benefits" data-i18n="nav_benefits">Beneficios</a></li>
             <li><a href="#testimonials" data-i18n="nav_testimonials">Reseñas</a></li>
             <li><a href="#appointments" data-i18n="nav_appointments">Contacto</a></li>
@@ -3551,7 +3550,6 @@
       <div id="mobile-menu" role="navigation">
         <a href="#about" data-i18n="nav_about">Nosotros</a>
         <a href="#products" data-i18n="nav_products">Productos</a>
-        <a href="#custom-design" data-i18n="nav_custom">Diseño Custom</a>
         <a href="#benefits" data-i18n="nav_benefits">Beneficios</a>
         <a href="#testimonials" data-i18n="nav_testimonials">Reseñas</a>
         <a href="#appointments" data-i18n="nav_appointments">Contacto</a>
@@ -3582,7 +3580,7 @@
               <i class="fas fa-tshirt"></i>
               <span data-i18n="hero_btn_products">Ver Colección</span>
             </a>
-            <a href="#custom-design" class="btn btn-outline-white">
+            <a href="#before-after" class="btn btn-outline-white">
               <i class="fas fa-pen-nib"></i>
               <span data-i18n="hero_btn_custom">Diseño Custom</span>
             </a>
@@ -4002,51 +4000,6 @@
     </div>
   </section>
 
-  <!-- ── CUSTOM DESIGN ── -->
-  <section id="custom-design">
-    <div class="container">
-      <div class="custom-inner">
-        <div class="custom-text fade-in">
-          <p class="section-label" data-i18n="custom_label">Diseño Personalizado</p>
-          <h2 class="section-title" data-i18n="custom_title">Crea tu prenda <em>única</em></h2>
-          <p data-i18n="custom_p">¿Tienes una idea en mente? Nosotros la hacemos realidad. Desde logos bordados hasta
-            estampados personalizados, cada prenda es una obra de arte hecha para ti.</p>
-          <a href="https://wa.me/593939675278?text=Hola! Me gustaría hacer un diseño personalizado"
-            class="btn btn-whatsapp" target="_blank" rel="noopener">
-            <i class="fab fa-whatsapp"></i>
-            <span data-i18n="custom_btn">Empezar mi diseño</span>
-          </a>
-        </div>
-        <div class="custom-steps">
-          <div class="custom-step fade-in">
-            <span class="step-num">01</span>
-            <div class="step-content">
-              <h4 data-i18n="step_1_title">Cuéntanos tu idea</h4>
-              <p data-i18n="step_1_p">Escríbenos por WhatsApp o llena el formulario con tu concepto, colores y tipo de
-                prenda.</p>
-            </div>
-          </div>
-          <div class="custom-step fade-in">
-            <span class="step-num">02</span>
-            <div class="step-content">
-              <h4 data-i18n="step_2_title">Recibe tu propuesta</h4>
-              <p data-i18n="step_2_p">Nuestro equipo de diseño te envía una propuesta visual en 24-48 horas para tu
-                aprobación.</p>
-            </div>
-          </div>
-          <div class="custom-step fade-in">
-            <span class="step-num">03</span>
-            <div class="step-content">
-              <h4 data-i18n="step_3_title">Producción & Entrega</h4>
-              <p data-i18n="step_3_p">Aprobado el diseño, producimos tu prenda y la enviamos directamente a tu puerta.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ── BENEFITS ── -->
   <section id="benefits">
     <div class="container">
@@ -4288,14 +4241,7 @@
 
           <!-- Floating Photos -->
           <div class="floating-photos">
-            <div class="photo-card p1">
-              <img src="img/chompa2-removebg-preview.png" alt="Hoodie">
-            </div>
-            <div class="photo-card p2">
-              <img src="img/camisa2-removebg-preview.png" alt="Shirt">
-              <p class="photo-tag cursive-sub" data-i18n="photo_tag">Estilo que te representa</p>
-              <div class="doodle-line"></div>
-            </div>
+            <img src="img/imageContact-remove.png" alt="Contacto RopaX" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));">
           </div>
         </div>
 
@@ -4388,7 +4334,6 @@
           <ul class="footer-links">
             <li><a href="#about" data-i18n="nav_about">Nosotros</a></li>
             <li><a href="#products" data-i18n="nav_products">Productos</a></li>
-            <li><a href="#custom-design" data-i18n="nav_custom">Diseño Custom</a></li>
             <li><a href="#benefits" data-i18n="nav_benefits">Beneficios</a></li>
             <li><a href="#testimonials" data-i18n="nav_testimonials">Reseñas</a></li>
           </ul>
@@ -4399,7 +4344,6 @@
             <li><a href="#products" data-i18n="cat_casual">Casual</a></li>
             <li><a href="#products" data-i18n="cat_elegante">Elegante</a></li>
             <li><a href="#products" data-i18n="cat_deportivo">Deportivo</a></li>
-            <li><a href="#custom-design" data-i18n="filter_custom">Custom</a></li>
           </ul>
         </div>
         <div class="fade-in">
