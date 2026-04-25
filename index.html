@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
@@ -1136,7 +1136,7 @@
     .product-badge.custom {
       background: #543180;
     }
-    
+
     .product-badge.featured {
       background: #D18D28;
     }
@@ -1159,7 +1159,8 @@
       opacity: 1;
     }
 
-    .btn-buy-card, .btn-wpp-card {
+    .btn-buy-card,
+    .btn-wpp-card {
       height: 40px;
       border-radius: 12px;
       font-size: 10px;
@@ -1285,7 +1286,7 @@
     .product-footer {
       padding: 15px 20px;
       background: #F2EFEC;
-      border-top: 1px solid rgba(0,0,0,0.03);
+      border-top: 1px solid rgba(0, 0, 0, 0.03);
       margin-top: 20px;
     }
 
@@ -1303,7 +1304,7 @@
       cursor: pointer;
       text-transform: capitalize;
     }
-    
+
     .btn-view-product i {
       font-size: 14px;
     }
@@ -1342,7 +1343,7 @@
       overflow-y: auto;
       transform: scale(0.9) translateY(40px);
       transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
     }
 
     .modal-overlay.active .modal-content {
@@ -1370,7 +1371,7 @@
       height: auto;
       max-height: 500px;
       object-fit: contain;
-      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
+      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.1));
     }
 
     .modal-info {
@@ -1429,7 +1430,8 @@
       margin-bottom: 40px;
     }
 
-    .btn-buy-modal, .btn-wpp-modal {
+    .btn-buy-modal,
+    .btn-wpp-modal {
       flex: 1;
       height: 54px;
       border-radius: 14px;
@@ -1452,7 +1454,7 @@
     .btn-buy-modal:hover {
       background: #333;
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 
     .btn-wpp-modal {
@@ -1470,7 +1472,7 @@
     .modal-trust {
       display: flex;
       gap: 25px;
-      border-top: 1px solid rgba(0,0,0,0.06);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
       padding-top: 25px;
     }
 
@@ -1495,7 +1497,7 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: rgba(0,0,0,0.04);
+      background: rgba(0, 0, 0, 0.04);
       border: none;
       font-size: 18px;
       color: var(--ink);
@@ -1610,7 +1612,8 @@
     }
 
     /* Navbar Extra */
-    .nav-cart, .nav-fav {
+    .nav-cart,
+    .nav-fav {
       position: relative;
       background: none;
       border: none;
@@ -1620,12 +1623,14 @@
       transition: var(--transition);
     }
 
-    .nav-cart:hover, .nav-fav:hover {
+    .nav-cart:hover,
+    .nav-fav:hover {
       color: #D18D28;
       transform: scale(1.1);
     }
 
-    .cart-count, .fav-count {
+    .cart-count,
+    .fav-count {
       position: absolute;
       top: -8px;
       right: -8px;
@@ -1640,11 +1645,11 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     .fav-count {
       background: #e74c3c;
     }
-    
+
     .wishlist-btn.active i {
       font-weight: 900 !important;
       color: #e74c3c;
@@ -1657,7 +1662,7 @@
       gap: 15px;
       margin-bottom: 20px;
       padding-bottom: 20px;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .cart-item-img-mini {
@@ -1717,7 +1722,8 @@
       border-color: var(--ink);
     }
 
-    .remove-item, .remove-fav {
+    .remove-item,
+    .remove-fav {
       background: none;
       border: none;
       color: var(--ink-light);
@@ -1727,7 +1733,8 @@
       padding: 5px;
     }
 
-    .remove-item:hover, .remove-fav:hover {
+    .remove-item:hover,
+    .remove-fav:hover {
       color: #A62A21;
     }
 
@@ -1739,10 +1746,22 @@
     }
 
     @media (max-width: 900px) {
-      .modal-grid { grid-template-columns: 1fr; }
-      .modal-gallery { padding: 40px; position: relative; }
-      .modal-info { padding: 40px 30px; }
-      .modal-content { max-height: 95vh; }
+      .modal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-gallery {
+        padding: 40px;
+        position: relative;
+      }
+
+      .modal-info {
+        padding: 40px 30px;
+      }
+
+      .modal-content {
+        max-height: 95vh;
+      }
     }
 
     /* ─── BENEFITS ─── */
@@ -1878,142 +1897,423 @@
       margin-top: 2px;
     }
 
-    /* ─── BEFORE & AFTER ─── */
+    /* ─── BEFORE & AFTER REDESIGN ─── */
     #before-after {
       padding: 100px 0;
       background: var(--white);
     }
 
-    .image-comparison {
+    .ba-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .ba-header .section-label {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .ba-header .section-label::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2px;
+      background: var(--amber);
+    }
+
+    .ba-header .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+
+    .ba-subtitle {
+      font-size: 1.1rem;
+      color: var(--ink-mid);
+      margin-top: 15px;
+    }
+
+    .ba-subtitle strong {
+      color: var(--amber);
+      font-weight: 600;
+    }
+
+    .ba-features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .ba-feature {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .ba-f-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      font-size: 1.2rem;
+    }
+
+    .ba-f-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .ba-f-text p {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+    }
+
+    .ba-static-showcase {
       position: relative;
       width: 100%;
-      max-width: 900px;
+      max-width: 700px;
       margin: 0 auto;
       aspect-ratio: 16/9;
       overflow: hidden;
       border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-card);
-      user-select: none;
-      cursor: grab;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      background: var(--white);
     }
 
-    .image-comparison.dragging {
-      cursor: grabbing;
-    }
-
-    .image-comparison__image {
+    .ba-side {
       position: absolute;
       top: 0;
-      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .ba-before img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: left center;
     }
 
-    .image-comparison__before {
+    .ba-after img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+    }
+
+    .ba-before {
+      left: 0;
       z-index: 1;
+      clip-path: polygon(0 0, calc(52% - 2px) 0, calc(44% - 2px) 100%, 0 100%);
+      background: #EAE1D3; /* Fallback for transparency */
     }
 
-    .image-comparison__after {
-      z-index: 2;
-      clip-path: inset(0 0 0 50%);
+    .ba-after {
+      left: 0;
+      z-index: 1;
+      clip-path: polygon(calc(52% + 2px) 0, 100% 0, 100% 100%, calc(44% + 2px) 100%);
+      background: #2C2C2A; /* Fallback for transparency */
     }
 
-    .image-comparison__slider {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 4px;
-      background: var(--white);
-      z-index: 3;
-      transform: translateX(-50%);
-      cursor: grab;
-    }
-
-    .image-comparison__slider::before {
-      content: '';
+    .ba-center-badge {
       position: absolute;
       top: 50%;
-      left: 50%;
-      width: 48px;
-      height: 48px;
+      left: 48%;
+      transform: translate(-50%, -50%);
+      width: 74px;
+      height: 74px;
       background: var(--white);
       border-radius: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .image-comparison__slider::after {
-      content: '↔';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 20px;
-      color: var(--amber);
-      font-weight: bold;
-    }
-
-    .label-before,
-    .label-after {
-      position: absolute;
-      top: 20px;
-      padding: 8px 16px;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      z-index: 15;
       color: var(--ink);
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.10em;
-      border-radius: 50px;
-      z-index: 4;
-      pointer-events: none;
-      box-shadow: var(--shadow-soft);
     }
 
-    .label-before {
-      left: 20px;
+    .ba-center-badge .fa-tshirt {
+      font-size: 1.6rem;
+      margin-bottom: 2px;
     }
 
-    .label-after {
-      right: 20px;
-    }
-
-    .ba-nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(4px);
-      border: none;
+    .ba-badge-arrows {
+      display: flex;
+      gap: 8px;
       color: var(--amber);
-      font-size: 18px;
+      font-size: 0.85rem;
+    }
+
+    .ba-tag {
+      position: absolute;
+      top: 30px;
+      padding: 8px 24px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      border-radius: 50px;
+      color: var(--white);
+      z-index: 10;
+    }
+
+    .ba-tag-left {
+      left: 40px;
+      background: rgba(44, 34, 24, 0.85);
+    }
+
+    .ba-tag-right {
+      right: 40px;
+      background: rgba(201, 136, 42, 0.95);
+    }
+
+    .ba-floating-box {
+      position: absolute;
+      bottom: 40px;
+      background: var(--white);
+      padding: 10px 11px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      max-width: 290px;
+      z-index: 10;
+    }
+
+    .ba-box-left {
+      left: 12px;
+    }
+
+    .ba-box-right {
+      right: 12px;
+    }
+
+    .ba-box-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--amber-pale);
+      color: var(--amber);
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .ba-box-icon .fa-check {
+      background: var(--amber);
+      color: var(--white);
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .ba-box-text h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .ba-box-text p {
+      font-size: 0.7rem;
+      color: var(--ink-light);
+      line-height: 1.4;
+    }
+
+    .ba-process {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .ba-process-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 15px;
+    }
+
+    .ba-process-steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .ba-p-step {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: var(--off-white);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      text-align: left;
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .ba-p-icon-container {
+      position: relative;
+    }
+
+    .ba-p-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      font-size: 1.2rem;
+    }
+
+    .ba-p-number {
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      width: 20px;
+      height: 20px;
+      background: var(--amber);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--white);
+      display: none;
+    }
+
+    .ba-p-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .ba-p-text p {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      line-height: 1.4;
+    }
+
+    .ba-p-arrow {
+      color: var(--gray-400);
+      font-size: 1.2rem;
+    }
+
+    .hand-drawn-arrow {
+      position: absolute;
+      top: 35%;
+      left: 38%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       z-index: 10;
-      box-shadow: var(--shadow-soft);
-      transition: var(--transition);
+      transform: rotate(-10deg);
     }
 
-    .ba-nav-btn:hover {
-      background: var(--white);
-      transform: translateY(-50%) scale(1.1);
-      box-shadow: var(--shadow-card);
+    .hand-drawn-arrow span {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: var(--ink-mid);
+      margin-bottom: -5px;
     }
 
-    .ba-nav-btn.prev {
-      left: 20px;
+    .hand-drawn-arrow svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--ink-mid);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    .ba-nav-btn.next {
-      right: 20px;
+    @media (max-width: 1024px) {
+      .ba-p-arrow {
+        display: none;
+      }
+
+      .ba-process-steps {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .ba-floating-box {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        margin: 15px auto;
+        max-width: 90%;
+      }
+
+      .ba-before,
+      .ba-after {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .hand-drawn-arrow {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .ba-static-showcase {
+        aspect-ratio: 1/1;
+      }
+
+      .ba-before {
+        clip-path: polygon(0 0, 100% 0, 100% calc(50% - 2px), 0 calc(50% - 2px));
+      }
+
+      .ba-after {
+        clip-path: polygon(0 calc(50% + 2px), 100% calc(50% + 2px), 100% 100%, 0 100%);
+      }
+
+      .ba-center-badge {
+        left: 50%;
+        top: 50%;
+      }
+
+      .ba-features {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .ba-floating-box {
+        display: none;
+      }
+
+      .ba-header .section-title {
+        font-size: 2.2rem;
+      }
     }
 
     /* ─── CTA ─── */
@@ -2101,125 +2401,288 @@
 
     /* ─── APPOINTMENTS ─── */
     #appointments {
-      padding: 100px 0;
-      background: var(--off-white);
+      background: #F8F4EF;
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
     }
 
     .appointments-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
-      align-items: start;
+      align-items: center;
     }
 
-    .appointments-info {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+    .cursive-sub {
+      font-family: 'Dancing Script', cursive;
+      color: var(--amber);
+      font-size: 1.8rem;
+      display: block;
+      margin-top: -10px;
+      font-weight: 400;
     }
 
-    .contact-item-box {
+    .contact-lead {
+      margin: 20px 0 20px;
+      font-size: 1.1rem;
+      color: var(--ink-light);
+      max-width: 400px;
+    }
+
+    .contact-items-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      max-width: 320px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .appointments-info .contact-item-box {
+      background: var(--white);
+      padding: 15px 22px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(0, 0, 0, 0.02);
     }
 
-    .contact-icon-wrap {
-      width: 44px;
-      height: 44px;
+    .appointments-info .contact-item-box:hover {
+      transform: translateX(12px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .appointments-info .contact-icon-wrap {
+      width: 46px;
+      height: 46px;
+      background: var(--ink);
+      color: var(--white);
       border-radius: 12px;
-      background: var(--amber-pale);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .appointments-info .contact-text-wrap h4 {
+      font-size: 10px;
+      letter-spacing: 0.12em;
       color: var(--amber);
-    }
-
-    .contact-text-wrap h4 {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink-light);
       margin-bottom: 2px;
+      font-weight: 800;
+      text-transform: uppercase;
     }
 
-    .contact-text-wrap p {
-      font-size: 15px;
-      font-weight: 500;
+    .appointments-info .contact-text-wrap p {
+      font-size: 14px;
+      font-weight: 600;
       color: var(--ink);
     }
 
-    .appointments-form-side {
+    /* Floating Photos */
+    .floating-photos {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 500px;
+      height: 600px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .photo-card {
+      position: absolute;
       background: var(--white);
-      padding: 40px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-card);
-      border: 1px solid var(--gray-200);
+      padding: 15px;
+      padding-bottom: 50px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      border-radius: 4px;
+      transition: all 0.5s ease;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #eee;
+      border-radius: 2px;
+    }
+
+    .photo-card.p1 {
+      width: 280px;
+      height: 360px;
+      top: 50px;
+      left: 0;
+      transform: rotate(-3deg);
+      z-index: 1;
+    }
+
+    .photo-card.p2 {
+      width: 240px;
+      height: 320px;
+      bottom: 50px;
+      left: 100px;
+      transform: rotate(6deg);
+      z-index: 3;
+      padding-bottom: 70px;
+    }
+
+    .photo-card.p2 img {
+      height: 190px;
+    }
+
+    .photo-tag {
+      font-size: 1.3rem;
+      text-align: center;
+      margin-top: 20px;
+      color: var(--ink);
+    }
+
+    .doodle-line {
+      width: 90px;
+      height: 10px;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 Q 25 0, 50 5 T 100 5' stroke='%23C9882A' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+      margin: 2px auto 0;
+      opacity: 0.8;
+    }
+
+    /* Form Side */
+    .form-card {
+      background: var(--white);
+      padding: 34px 48px;
+      border-radius: 35px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+      position: relative;
+      z-index: 10;
     }
 
     .form-title {
       font-family: var(--font-display);
-      font-size: 1.8rem;
-      font-weight: 700;
+      font-size: 2rem;
+      font-weight: 800;
       color: var(--ink);
-      margin-bottom: 24px;
+      margin-bottom: 25px;
+      line-height: 1;
+    }
+
+    .form-title-line {
+      width: 45px;
+      height: 4px;
+      background: var(--amber);
+      margin-top: 15px;
+      border-radius: 2px;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 28px;
     }
 
     .form-group label {
       display: block;
       font-size: 13px;
-      font-weight: 500;
-      color: var(--ink-mid);
-      margin-bottom: 8px;
-    }
-
-    .form-control {
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 12px;
-      border: 1.5px solid var(--gray-200);
-      font-family: var(--font-body);
-      font-size: 14px;
-      transition: var(--transition);
-      background: var(--white);
+      font-weight: 700;
+      margin-bottom: 12px;
       color: var(--ink);
     }
 
-    .form-control:focus {
+    .input-with-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-with-icon i {
+      position: absolute;
+      left: 22px;
+      color: var(--gray-400);
+      font-size: 1.2rem;
+    }
+
+    .input-with-icon.align-top i {
+      top: 18px;
+    }
+
+    .input-with-icon .form-control {
+      width: 100%;
+      height: 37px;
+      background: #FBF9F7;
+      border: 1.5px solid rgba(0, 0, 0, 0.04);
+      border-radius: 16px;
+      padding: 0 25px 0 60px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      color: var(--ink);
+    }
+
+    .input-with-icon textarea.form-control {
+      height: auto;
+      padding-top: 18px;
+    }
+
+    .input-with-icon .form-control:focus {
       outline: none;
       border-color: var(--amber);
-      box-shadow: 0 0 0 4px var(--amber-pale);
+      background: var(--white);
+      box-shadow: 0 10px 25px rgba(201, 136, 42, 0.1);
+    }
+
+    .input-with-icon .form-control::placeholder {
+      color: #BDB7B0;
+      font-weight: 400;
+    }
+
+    .form-btn-wrap {
+      position: relative;
+      margin-top: 37px;
     }
 
     .btn-form-wpp {
       width: 100%;
-      background: #25D366;
+      height: 50px;
+      background: #1DA851;
       color: var(--white);
-      padding: 16px;
-      border-radius: 50px;
       border: none;
-      font-family: var(--font-body);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.08em;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      transition: var(--transition);
-      margin-top: 10px;
+      gap: 12px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .btn-form-wpp i {
+      font-size: 1.4rem;
     }
 
     .btn-form-wpp:hover {
-      background: #1da851;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.30);
+      background: #199447;
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(29, 168, 81, 0.35);
+    }
+
+    .btn-doodle {
+      position: absolute;
+      right: -10px;
+      top: -42px;
+      width: 50px;
+      height: 50px;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 70 L20 30 M50 70 L50 20 M70 70 L80 30' stroke='black' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center;
+      opacity: 0.6;
+      pointer-events: none;
+      transform: rotate(15deg);
     }
 
     /* ─── FOOTER ─── */
@@ -2747,11 +3210,43 @@
 
       .appointments-grid {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 80px;
       }
 
-      .appointments-form-side {
-        padding: 28px;
+      .form-card {
+        padding: 40px 30px;
+      }
+
+      .floating-photos {
+        position: relative;
+        width: 100%;
+        height: 350px;
+        top: 0;
+        transform: none;
+        right: 0;
+        margin-top: 40px;
+      }
+
+      .photo-card.p1 {
+        left: 5%;
+        width: 200px;
+        height: 260px;
+      }
+
+      .photo-card.p2 {
+        left: 35%;
+        width: 160px;
+        height: 220px;
+        padding-bottom: 50px;
+      }
+
+      .photo-card.p2 img {
+        height: 130px;
+      }
+
+      .photo-tag {
+        font-size: 1rem;
+        margin-top: 10px;
       }
 
       #wpp-float {
@@ -3255,7 +3750,8 @@
             <div class="product-cat" data-i18n="cat_casual">Casual</div>
             <h3 class="product-name" data-i18n="prod_1_name">Camiseta Oversize Premium</h3>
             <div class="product-colors">
-              <div class="color-dot active" style="background:#2C1E0E;" data-img="img/camisa1-removebg-preview.png"></div>
+              <div class="color-dot active" style="background:#2C1E0E;" data-img="img/camisa1-removebg-preview.png">
+              </div>
               <div class="color-dot" style="background:#F7F2EC;" data-img="img/camisa2-removebg-preview.png"></div>
               <div class="color-dot" style="background:#C9882A;" data-img="img/camisa3-removebg-preview.png"></div>
             </div>
@@ -3290,7 +3786,8 @@
             <div class="product-cat" data-i18n="cat_elegante">Elegante</div>
             <h3 class="product-name" data-i18n="prod_2_name">Pantalón Chino Slim</h3>
             <div class="product-colors">
-              <div class="color-dot active" style="background:#2C2218;" data-img="img/pantalon1-removebg-preview.png"></div>
+              <div class="color-dot active" style="background:#2C2218;" data-img="img/pantalon1-removebg-preview.png">
+              </div>
               <div class="color-dot" style="background:#D4B896;" data-img="img/pantalon2-removebg-preview.png"></div>
               <div class="color-dot" style="background:#4A3B2A;" data-img="img/pantalon3-removebg-preview.png"></div>
             </div>
@@ -3325,7 +3822,8 @@
             <div class="product-cat">Custom Design</div>
             <h3 class="product-name" data-i18n="prod_3_name">Hoodie Custom Print</h3>
             <div class="product-colors">
-              <div class="color-dot active" style="background:#2C2218;" data-img="img/chompa1-removebg-preview.png"></div>
+              <div class="color-dot active" style="background:#2C2218;" data-img="img/chompa1-removebg-preview.png">
+              </div>
               <div class="color-dot" style="background:#F7F2EC;" data-img="img/chompa2-removebg-preview.png"></div>
               <div class="color-dot" style="background:#6B3FA0;" data-img="img/chompa3-removebg-preview.png"></div>
             </div>
@@ -3360,7 +3858,8 @@
             <div class="product-cat" data-i18n="cat_deportivo">Deportivo</div>
             <h3 class="product-name" data-i18n="prod_4_name">Set Deportivo Running</h3>
             <div class="product-colors">
-              <div class="color-dot active" style="background:#2C2218;" data-img="img/deportivo1-removebg-preview.png"></div>
+              <div class="color-dot active" style="background:#2C2218;" data-img="img/deportivo1-removebg-preview.png">
+              </div>
               <div class="color-dot" style="background:#C9882A;" data-img="img/deportivo2-removebg-preview.png"></div>
               <div class="color-dot" style="background:#EDE5D8;" data-img="img/deportivo3-removebg-preview.png"></div>
             </div>
@@ -3635,28 +4134,103 @@
   <!-- ── BEFORE & AFTER ── -->
   <section id="before-after">
     <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label" data-i18n="ba_label">Transformaciones</p>
-        <h2 class="section-title" data-i18n="ba_title">Diseño <em>Antes y Después</em></h2>
+      <div class="ba-header fade-in">
+        <p class="section-label" data-i18n="ba_new_label">Transformamos ideas en estilo</p>
+        <h2 class="section-title" data-i18n="ba_title">Diseño Antes y Después</h2>
+        <p class="ba-subtitle" data-i18n="ba_new_sub">Tú imaginas, nosotros creamos tu <strong>diseño
+            personalizado</strong>.</p>
       </div>
-      <div class="image-comparison fade-in" id="image-comparison">
-        <button class="ba-nav-btn prev" id="ba-prev"><i class="fas fa-chevron-left"></i></button>
-        <button class="ba-nav-btn next" id="ba-next"><i class="fas fa-chevron-right"></i></button>
-        <div class="image-comparison__image image-comparison__before"
-          style="background:linear-gradient(135deg,#EDE5D8,#D4B896);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;">
-          <i class="fas fa-tshirt" style="font-size:5rem;color:rgba(74,53,32,0.25);"></i>
-          <span style="font-family:var(--font-display);font-size:1.5rem;color:rgba(74,53,32,0.45);font-style:italic;"
-            data-i18n="ba_before_label">Sin diseño</span>
+
+
+
+      <div class="ba-static-showcase fade-in">
+        <div class="ba-side ba-before">
+          <img src="img/ropa1.png" alt="Antes">
         </div>
-        <div class="image-comparison__image image-comparison__after"
-          style="background:linear-gradient(135deg,#2C1E0E,#C9882A);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;">
-          <i class="fas fa-star" style="font-size:5rem;color:rgba(255,255,255,0.30);"></i>
-          <span style="font-family:var(--font-display);font-size:1.5rem;color:rgba(255,255,255,0.75);font-style:italic;"
-            data-i18n="ba_after_label">Con diseño RopaX</span>
+        <div class="ba-side ba-after">
+          <img src="img/ropa2.png" alt="Después">
         </div>
-        <div class="image-comparison__slider"></div>
-        <span class="label-before" data-i18n="ba_before">Antes</span>
-        <span class="label-after" data-i18n="ba_after">Después</span>
+        
+        <div class="ba-tag ba-tag-left">ANTES</div>
+        <div class="hand-drawn-arrow">
+          <span>Tu idea</span>
+          <svg viewBox="0 0 24 24">
+            <path d="M5 5 Q 12 15, 18 18 M 12 18 L 18 18 L 16 12" />
+          </svg>
+        </div>
+        <div class="ba-floating-box ba-box-left">
+          <div class="ba-box-icon"><i class="far fa-lightbulb"></i></div>
+          <div class="ba-box-text">
+            <h4 data-i18n="ba_b1_t">Cuéntanos tu idea</h4>
+            <p data-i18n="ba_b1_p">Tú eliges el estilo, colores y detalles que te representan.</p>
+          </div>
+        </div>
+
+        <div class="ba-tag ba-tag-right">DESPUÉS</div>
+        <div class="ba-floating-box ba-box-right">
+          <div class="ba-box-icon"><i class="fas fa-check"></i></div>
+          <div class="ba-box-text">
+            <h4 data-i18n="ba_b2_t">Lo hacemos realidad</h4>
+            <p data-i18n="ba_b2_p">Usamos los mejores materiales y técnicas para un resultado increíble.</p>
+          </div>
+        </div>
+
+        <div class="ba-center-badge">
+          <i class="fas fa-tshirt"></i>
+          <div class="ba-badge-arrows">
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-process fade-in">
+        <h3 class="ba-process-title" data-i18n="ba_process_title">Así es nuestro proceso</h3>
+        <div class="ba-process-steps">
+          <div class="ba-p-step">
+            <div class="ba-p-icon-container">
+              <div class="ba-p-number">1</div>
+              <div class="ba-p-icon"><i class="far fa-comment-dots"></i></div>
+            </div>
+            <div class="ba-p-text">
+              <h4 data-i18n="ba_p1_t">Cuéntanos tu idea</h4>
+              <p data-i18n="ba_p1_p">Envíanos tu diseño, boceto o inspiración.</p>
+            </div>
+          </div>
+          <div class="ba-p-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="ba-p-step">
+            <div class="ba-p-icon-container">
+              <div class="ba-p-number">2</div>
+              <div class="ba-p-icon"><i class="fas fa-tshirt"></i></div>
+            </div>
+            <div class="ba-p-text">
+              <h4 data-i18n="ba_p2_t">Te enviamos tu diseño</h4>
+              <p data-i18n="ba_p2_p">Creamos una vista previa para que lo apruebes.</p>
+            </div>
+          </div>
+          <div class="ba-p-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="ba-p-step">
+            <div class="ba-p-icon-container">
+              <div class="ba-p-number">3</div>
+              <div class="ba-p-icon"><i class="fas fa-scissors"></i></div>
+            </div>
+            <div class="ba-p-text">
+              <h4 data-i18n="ba_p3_t">Lo producimos</h4>
+              <p data-i18n="ba_p3_p">Con materiales premium y atención al detalle.</p>
+            </div>
+          </div>
+          <div class="ba-p-arrow"><i class="fas fa-arrow-right"></i></div>
+          <div class="ba-p-step">
+            <div class="ba-p-icon-container">
+              <div class="ba-p-number">4</div>
+              <div class="ba-p-icon"><i class="fas fa-box-open"></i></div>
+            </div>
+            <div class="ba-p-text">
+              <h4 data-i18n="ba_p4_t">Lo recibes en casa</h4>
+              <p data-i18n="ba_p4_p">Envíos rápidos y seguros a todo el país.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -3666,60 +4240,97 @@
     <div class="container">
       <div class="appointments-grid">
         <div class="appointments-info fade-in">
-          <p class="section-label" data-i18n="contact_label">Contáctanos</p>
-          <h2 class="section-title"><span data-i18n="contact_title">Haz tu pedido hoy</span></h2>
-          <p data-i18n="contact_p">Estamos listos para atenderte. Escríbenos por WhatsApp o llena el formulario y te
-            contactamos pronto.</p>
-          <div style="margin-top:20px;display:flex;flex-direction:column;gap:20px;">
+          <p class="section-label" data-i18n="contact_label">CONTÁCTANOS</p>
+          <h2 class="section-title">
+            <span data-i18n="contact_title">Haz tu pedido hoy</span>
+            <em class="cursive-sub" data-i18n="contact_title_sub">estamos para ayudarte</em>
+          </h2>
+          <p data-i18n="contact_p" class="contact-lead">Escríbenos por WhatsApp o llena el formulario y te contactamos
+            pronto. ♥</p>
+
+          <div class="contact-items-list">
             <div class="contact-item-box">
               <div class="contact-icon-wrap"><i class="fas fa-location-dot"></i></div>
               <div class="contact-text-wrap">
-                <h4 data-i18n="contact_loc_label">Ubicación</h4>
+                <h4 data-i18n="contact_loc_label">UBICACIÓN</h4>
                 <p>Montecristi, Manabí, Ecuador</p>
               </div>
             </div>
             <div class="contact-item-box">
               <div class="contact-icon-wrap"><i class="fab fa-whatsapp"></i></div>
               <div class="contact-text-wrap">
-                <h4>WhatsApp</h4>
+                <h4 data-i18n="contact_wpp_label">WHATSAPP</h4>
                 <p>0939675278</p>
               </div>
             </div>
             <div class="contact-item-box">
               <div class="contact-icon-wrap"><i class="fab fa-instagram"></i></div>
               <div class="contact-text-wrap">
-                <h4>Instagram</h4>
+                <h4 data-i18n="contact_ig_label">INSTAGRAM</h4>
                 <p>@ropax</p>
               </div>
             </div>
             <div class="contact-item-box">
               <div class="contact-icon-wrap"><i class="fab fa-tiktok"></i></div>
               <div class="contact-text-wrap">
-                <h4>TikTok</h4>
+                <h4 data-i18n="contact_tk_label">TIKTOK</h4>
                 <p>@ropax</p>
               </div>
             </div>
           </div>
+
+          <!-- Floating Photos -->
+          <div class="floating-photos">
+            <div class="photo-card p1">
+              <img src="img/chompa2-removebg-preview.png" alt="Hoodie">
+            </div>
+            <div class="photo-card p2">
+              <img src="img/camisa2-removebg-preview.png" alt="Shirt">
+              <p class="photo-tag cursive-sub" data-i18n="photo_tag">Estilo que te representa</p>
+              <div class="doodle-line"></div>
+            </div>
+          </div>
         </div>
+
         <div class="appointments-form-side fade-in">
-          <h3 class="form-title" data-i18n="form_title">Envíanos tu diseño</h3>
-          <form id="appointment-form">
-            <div class="form-group">
-              <label data-i18n="form_name">Tu nombre</label>
-              <input type="text" id="user-name" class="form-control" placeholder="Ej. María González" required>
-            </div>
-            <div class="form-group">
-              <label data-i18n="form_phone">Tu WhatsApp</label>
-              <input type="tel" id="user-phone" class="form-control" placeholder="09XXXXXXXX" required>
-            </div>
-            <div class="form-group">
-              <label data-i18n="form_msg">Mensaje (opcional)</label>
-              <textarea id="user-msg" class="form-control" rows="3" placeholder="Cuéntanos qué necesitas..."></textarea>
-            </div>
-            <button type="submit" class="btn-form-wpp">
-              <i class="fab fa-whatsapp"></i> <span data-i18n="form_btn">Enviar por WhatsApp</span>
-            </button>
-          </form>
+          <div class="form-card">
+            <h3 class="form-title">
+              <span data-i18n="form_title">Solicita información</span>
+              <div class="form-title-line"></div>
+            </h3>
+            <form id="appointment-form">
+              <div class="form-group">
+                <label data-i18n="form_name_label">Tu nombre</label>
+                <div class="input-with-icon">
+                  <i class="far fa-user"></i>
+                  <input type="text" id="user-name" class="form-control" data-i18n-placeholder="form_name_ph"
+                    placeholder="Ej. María González" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="form_phone_label">Tu WhatsApp</label>
+                <div class="input-with-icon">
+                  <i class="fab fa-whatsapp"></i>
+                  <input type="tel" id="user-phone" class="form-control" data-i18n-placeholder="form_phone_ph"
+                    placeholder="09XXXXXXXX" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label data-i18n="form_msg_label">Mensaje (opcional)</label>
+                <div class="input-with-icon align-top">
+                  <i class="far fa-comment-dots"></i>
+                  <textarea id="user-msg" class="form-control" rows="3" data-i18n-placeholder="form_msg_ph"
+                    placeholder="Cuéntanos qué necesitas..."></textarea>
+                </div>
+              </div>
+              <div class="form-btn-wrap">
+                <button type="submit" class="btn-form-wpp">
+                  <i class="fab fa-whatsapp"></i> <span data-i18n="form_btn">ENVIAR POR WHATSAPP</span>
+                </button>
+                <div class="btn-doodle"></div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -3865,7 +4476,7 @@
             <p id="modal-cat" class="product-cat"></p>
             <h2 id="modal-name"></h2>
           </div>
-          
+
           <div class="modal-price-row" style="margin: 15px 0;">
             <span id="modal-price" class="product-price"></span>
             <span id="modal-old-price" class="product-old-price"></span>
@@ -3888,10 +4499,12 @@
               <span>WhatsApp</span>
             </a>
           </div>
-          
+
           <div class="modal-trust">
-            <div class="trust-mini"><i class="fas fa-shield-halved"></i> <span data-i18n="trust_orig">Calidad Garantizada</span></div>
-            <div class="trust-mini"><i class="fas fa-truck-fast"></i> <span data-i18n="trust_delivery">Envío Express</span></div>
+            <div class="trust-mini"><i class="fas fa-shield-halved"></i> <span data-i18n="trust_orig">Calidad
+                Garantizada</span></div>
+            <div class="trust-mini"><i class="fas fa-truck-fast"></i> <span data-i18n="trust_delivery">Envío
+                Express</span></div>
           </div>
         </div>
       </div>
@@ -4034,7 +4647,7 @@
     function updateCounts() {
       cartCountBadge.textContent = cart.reduce((s, i) => s + i.qty, 0);
       favCountBadge.textContent = favorites.length;
-      
+
       // Update heart icons in grid
       document.querySelectorAll('.product-card').forEach(card => {
         const id = card.dataset.id;
@@ -4143,9 +4756,9 @@
       const btn = e.target.closest('.add-to-cart');
       if (!btn) return;
       const card = btn.closest('.product-card');
-      const p = { 
-        id: card.dataset.id, 
-        name: card.dataset.name, 
+      const p = {
+        id: card.dataset.id,
+        name: card.dataset.name,
         price: parseFloat(card.dataset.price),
         img: card.querySelector('.product-img').src
       };
@@ -4212,11 +4825,11 @@
       if (!dot || dot.classList.contains('active')) return;
       const card = dot.closest('.product-card') || dot.closest('.modal-info');
       if (!card) return;
-      
-      const imgTarget = card.classList.contains('modal-info') 
-        ? document.getElementById('modal-img') 
+
+      const imgTarget = card.classList.contains('modal-info')
+        ? document.getElementById('modal-img')
         : card.querySelector('.product-img');
-      
+
       const newSrc = dot.dataset.img;
       if (imgTarget && newSrc) {
         imgTarget.style.opacity = '0';
@@ -4250,7 +4863,7 @@
       document.getElementById('modal-cat').textContent = cat;
       document.getElementById('modal-price').textContent = `USD$ ${parseFloat(price).toFixed(2).replace('.', ',')}`;
       document.getElementById('modal-desc').textContent = description;
-      
+
       const modalBadge = document.getElementById('modal-badge');
       if (badge) {
         modalBadge.textContent = badge.textContent;
@@ -4362,32 +4975,7 @@
     });
 
     // ─── BEFORE & AFTER SLIDER ───
-    const comparison = document.getElementById('image-comparison');
-    if (comparison) {
-      const afterEl = comparison.querySelector('.image-comparison__after');
-      const sliderEl = comparison.querySelector('.image-comparison__slider');
-      let isDragging = false;
-
-      const move = (e) => {
-        if (!isDragging) return;
-        const rect = comparison.getBoundingClientRect();
-        let x = (e.pageX || e.touches?.[0]?.pageX || 0) - rect.left - window.scrollX;
-        x = Math.max(0, Math.min(x, rect.width));
-        const pct = (x / rect.width) * 100;
-        afterEl.style.clipPath = `inset(0 0 0 ${pct}%)`;
-        sliderEl.style.left = `${pct}%`;
-      };
-
-      sliderEl.addEventListener('mousedown', e => { e.preventDefault(); isDragging = true; comparison.classList.add('dragging'); });
-      sliderEl.addEventListener('touchstart', e => { isDragging = true; comparison.classList.add('dragging'); }, { passive: false });
-      window.addEventListener('mousemove', move);
-      window.addEventListener('touchmove', e => { if (isDragging && e.cancelable) e.preventDefault(); move(e); }, { passive: false });
-      window.addEventListener('mouseup', () => { isDragging = false; comparison.classList.remove('dragging'); });
-      window.addEventListener('touchend', () => { isDragging = false; comparison.classList.remove('dragging'); });
-
-      document.getElementById('ba-prev').addEventListener('click', e => { e.stopPropagation(); afterEl.style.clipPath = 'inset(0 0 0 50%)'; sliderEl.style.left = '50%'; });
-      document.getElementById('ba-next').addEventListener('click', e => { e.stopPropagation(); afterEl.style.clipPath = 'inset(0 0 0 50%)'; sliderEl.style.left = '50%'; });
-    }
+    // Removed because the new design uses a static layout.
 
     // ─── INIT ───
     const savedLang = localStorage.getItem('ropax_lang') || 'es';
