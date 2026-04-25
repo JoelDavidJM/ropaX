@@ -129,6 +129,8 @@
   "msg_cart_intro": "¡Hola RopaX! Quisiera hacer el siguiente pedido:",
   "msg_cart_total": "Total del pedido:",
   "msg_cart_footer": "Por favor indíquenme los métodos de pago disponibles.",
+  "fav_title": "Mis Favoritos",
+  "fav_empty": "Aún no tienes favoritos",
   "msg_appt_intro": "¡Hola! Me gustaría solicitar información:",
   "msg_appt_name": "Nombre",
   "msg_appt_phone": "WhatsApp",
@@ -136,5 +138,11 @@
   "msg_appt_message": "Mensaje",
   "msg_appt_no_msg": "Sin mensaje",
   "wpp_float_msg": "¡Hola! Visité el sitio de RopaX y quiero más información.",
-  "about_hint": "Pase el mouse para ver el proceso creativo"
+  "about_hint": "Pase el mouse para ver el proceso creativo",
+  "btn_view": "Ver producto",
+  "modal_colors": "Colores disponibles",
+  "prod_1_desc": "Nuestra camiseta estrella. Confeccionada con algodón de 240g, ofrece un ajuste relajado y duradero. Perfecta para un look urbano y sofisticado.",
+  "prod_2_desc": "El equilibrio perfecto entre lo formal y lo casual. Tela de gabardina con un toque de elastano para máxima comodidad durante todo el día.",
+  "prod_3_desc": "Tu lienzo personal. Sudadera de alta densidad con interior cepillado. Ideal para tus diseños personalizados con la mejor calidad de impresión.",
+  "prod_4_desc": "Rendimiento sin compromisos. Tela transpirable de secado rápido que se adapta a cada movimiento. Incluye camiseta y short."
 }
