@@ -2253,10 +2253,169 @@
 
       /* ... resto del código ... */
     }
+    /* ─── PRELOADER (CINEMATIC LUXURY) ─── */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, #1a1209 0%, #0a0704 100%);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .preloader-particles {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      opacity: 0.3;
+      pointer-events: none;
+      animation: noiseAnim 0.2s infinite alternate;
+    }
+
+    @keyframes noiseAnim {
+      from { transform: translate(0,0); }
+      to { transform: translate(1%, 1%); }
+    }
+
+    .preloader-panels {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .preloader-panel {
+      flex: 1;
+      height: 100%;
+      background: #0a0704;
+      transition: transform 1.6s cubic-bezier(0.9, 0, 0.1, 1);
+    }
+
+    #preloader.revealed .preloader-panel:nth-child(1) { transform: translateY(-100%); }
+    #preloader.revealed .preloader-panel:nth-child(2) { transform: translateY(100%); transition-delay: 0.1s; }
+    #preloader.revealed .preloader-panel:nth-child(3) { transform: translateY(-100%); transition-delay: 0.2s; }
+
+    .preloader-content-cinematic {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: cinematicZoom 6s cubic-bezier(0.1, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes cinematicZoom {
+      from { transform: scale(0.95); }
+      to { transform: scale(1.1); }
+    }
+
+    .logo-reveal-container {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-circle-svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .logo-circle-path {
+      stroke-dasharray: 302;
+      stroke-dashoffset: 302;
+      stroke: var(--amber);
+      stroke-width: 0.4;
+      animation: drawCircle 2.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+      filter: drop-shadow(0 0 10px rgba(201, 136, 42, 0.5));
+    }
+
+    @keyframes drawCircle {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .logo-text-wrap {
+      position: relative;
+      width: 180px;
+      opacity: 0;
+      filter: blur(20px);
+      animation: logoReveal 3s cubic-bezier(0.2, 1, 0.3, 1) 1s forwards;
+    }
+
+    @keyframes logoReveal {
+      0% { opacity: 0; filter: blur(20px); transform: scale(0.9); }
+      50% { opacity: 1; filter: blur(0); transform: scale(1.05); }
+      100% { opacity: 1; filter: blur(0); transform: scale(1); }
+    }
+
+    .cinematic-logo {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.8));
+    }
+
+    .logo-shine {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.4) 50%, transparent 60%);
+      background-size: 200% 100%;
+      background-position: -150% 0;
+      mix-blend-mode: overlay;
+      animation: lightSweep 4s ease-in-out infinite;
+    }
+
+    @keyframes lightSweep {
+      0% { background-position: -150% 0; }
+      50% { background-position: 150% 0; }
+      100% { background-position: 150% 0; }
+    }
+
+    .preloader-tagline {
+      margin-top: 30px;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.6em;
+      text-transform: uppercase;
+      color: rgba(201, 136, 42, 0.7);
+      opacity: 0;
+      animation: fadeIn 2s ease 2.5s forwards;
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
   </style>
 </head>
 
-<body>
+<body style="overflow: hidden;">
+  <!-- ── PRELOADER ── -->
+  <div id="preloader">
+    <div class="preloader-particles"></div>
+    <div class="preloader-panels">
+      <div class="preloader-panel"></div>
+      <div class="preloader-panel"></div>
+      <div class="preloader-panel"></div>
+    </div>
+    <div class="preloader-content-cinematic">
+      <div class="logo-reveal-container">
+        <svg class="logo-circle-svg" viewBox="0 0 100 100">
+          <circle class="logo-circle-path" cx="50" cy="50" r="48" fill="none" />
+        </svg>
+        <div class="logo-text-wrap">
+          <img src="img/logo1.png" alt="RopaX Logo" class="cinematic-logo">
+          <div class="logo-shine"></div>
+        </div>
+      </div>
+      <div class="preloader-tagline">Exclusividad & Estilo</div>
+    </div>
+  </div>
+
 
   <!-- ── NAVBAR ── -->
   <header>
@@ -3341,6 +3500,28 @@
         redesignOverlay.style.clipPath = `circle(100px at ${x}% ${y}%)`;
       }, { passive: true });
     }
+    // ─── PRELOADER ───
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          const content = preloader.querySelector('.preloader-content-cinematic');
+          if (content) {
+            content.style.opacity = '0';
+            content.style.transition = 'opacity 1s ease';
+          }
+          
+          setTimeout(() => {
+            preloader.style.background = 'transparent';
+            preloader.classList.add('revealed');
+            setTimeout(() => {
+              preloader.style.display = 'none';
+              document.body.style.overflow = '';
+            }, 1800); 
+          }, 600);
+        }, 4500); // Intro más larga para apreciar el estilo cinematográfico
+      }
+    });
   </script>
 </body>
 
