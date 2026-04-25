@@ -715,8 +715,8 @@
     .about-imgs.redesign-active .base-img,
     .about-imgs.redesign-active .redesign-overlay img {
       position: absolute;
-      top: 0;
-      left: 0;
+      left: 2px;
+    top: -5px;
       width: 98%;
       height: 106%;
       object-fit: contain;
@@ -728,10 +728,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      clip-path: circle(0% at 0% 0%);
+      -webkit-mask-image: radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), black 20%, transparent 100%);
+      mask-image: radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), black 20%, transparent 100%);
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+      opacity: 0;
       z-index: 2;
       pointer-events: none;
-      transition: clip-path 0.1s ease-out;
+      transition: opacity 0.4s ease;
     }
 
     .about-imgs.redesign-active .redesign-overlay img {
@@ -2253,6 +2257,7 @@
 
       /* ... resto del código ... */
     }
+
     /* ─── PRELOADER (CINEMATIC LUXURY) ─── */
     #preloader {
       position: fixed;
@@ -2275,8 +2280,13 @@
     }
 
     @keyframes noiseAnim {
-      from { transform: translate(0,0); }
-      to { transform: translate(1%, 1%); }
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(1%, 1%);
+      }
     }
 
     .preloader-panels {
@@ -2294,9 +2304,19 @@
       transition: transform 1.6s cubic-bezier(0.9, 0, 0.1, 1);
     }
 
-    #preloader.revealed .preloader-panel:nth-child(1) { transform: translateY(-100%); }
-    #preloader.revealed .preloader-panel:nth-child(2) { transform: translateY(100%); transition-delay: 0.1s; }
-    #preloader.revealed .preloader-panel:nth-child(3) { transform: translateY(-100%); transition-delay: 0.2s; }
+    #preloader.revealed .preloader-panel:nth-child(1) {
+      transform: translateY(-100%);
+    }
+
+    #preloader.revealed .preloader-panel:nth-child(2) {
+      transform: translateY(100%);
+      transition-delay: 0.1s;
+    }
+
+    #preloader.revealed .preloader-panel:nth-child(3) {
+      transform: translateY(-100%);
+      transition-delay: 0.2s;
+    }
 
     .preloader-content-cinematic {
       position: relative;
@@ -2309,8 +2329,13 @@
     }
 
     @keyframes cinematicZoom {
-      from { transform: scale(0.95); }
-      to { transform: scale(1.1); }
+      from {
+        transform: scale(0.95);
+      }
+
+      to {
+        transform: scale(1.1);
+      }
     }
 
     .logo-reveal-container {
@@ -2339,7 +2364,9 @@
     }
 
     @keyframes drawCircle {
-      to { stroke-dashoffset: 0; }
+      to {
+        stroke-dashoffset: 0;
+      }
     }
 
     .logo-text-wrap {
@@ -2351,9 +2378,23 @@
     }
 
     @keyframes logoReveal {
-      0% { opacity: 0; filter: blur(20px); transform: scale(0.9); }
-      50% { opacity: 1; filter: blur(0); transform: scale(1.05); }
-      100% { opacity: 1; filter: blur(0); transform: scale(1); }
+      0% {
+        opacity: 0;
+        filter: blur(20px);
+        transform: scale(0.9);
+      }
+
+      50% {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1.05);
+      }
+
+      100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+      }
     }
 
     .cinematic-logo {
@@ -2373,9 +2414,17 @@
     }
 
     @keyframes lightSweep {
-      0% { background-position: -150% 0; }
-      50% { background-position: 150% 0; }
-      100% { background-position: 150% 0; }
+      0% {
+        background-position: -150% 0;
+      }
+
+      50% {
+        background-position: 150% 0;
+      }
+
+      100% {
+        background-position: 150% 0;
+      }
     }
 
     .preloader-tagline {
@@ -2389,7 +2438,11 @@
       animation: fadeIn 2s ease 2.5s forwards;
     }
 
-    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 
@@ -3480,25 +3533,34 @@
     if (redesignContainer) {
       const redesignOverlay = redesignContainer.querySelector('.redesign-overlay');
 
+      const updateMask = (x, y) => {
+        redesignOverlay.style.setProperty('--mouse-x', `${x}%`);
+        redesignOverlay.style.setProperty('--mouse-y', `${y}%`);
+        redesignOverlay.style.opacity = '1';
+      };
+
       redesignContainer.addEventListener('mousemove', (e) => {
         const rect = redesignContainer.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         const y = ((e.clientY - rect.top) / rect.height) * 100;
-        redesignOverlay.style.clipPath = `circle(120px at ${x}% ${y}%)`;
+        updateMask(x, y);
       });
 
       redesignContainer.addEventListener('mouseleave', () => {
-        redesignOverlay.style.clipPath = `circle(0% at 50% 50%)`;
+        redesignOverlay.style.opacity = '0';
       });
 
-      // Soporte para touch
       redesignContainer.addEventListener('touchmove', (e) => {
         const rect = redesignContainer.getBoundingClientRect();
         const touch = e.touches[0];
         const x = ((touch.clientX - rect.left) / rect.width) * 100;
         const y = ((touch.clientY - rect.top) / rect.height) * 100;
-        redesignOverlay.style.clipPath = `circle(100px at ${x}% ${y}%)`;
+        updateMask(x, y);
       }, { passive: true });
+
+      redesignContainer.addEventListener('touchend', () => {
+        redesignOverlay.style.opacity = '0';
+      });
     }
     // ─── PRELOADER ───
     window.addEventListener('load', () => {
@@ -3510,14 +3572,14 @@
             content.style.opacity = '0';
             content.style.transition = 'opacity 1s ease';
           }
-          
+
           setTimeout(() => {
             preloader.style.background = 'transparent';
             preloader.classList.add('revealed');
             setTimeout(() => {
               preloader.style.display = 'none';
               document.body.style.overflow = '';
-            }, 1800); 
+            }, 1800);
           }, 600);
         }, 4500); // Intro más larga para apreciar el estilo cinematográfico
       }
