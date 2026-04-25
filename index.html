@@ -110,6 +110,7 @@
     .fade-in.visible {
       opacity: 1;
       transform: none;
+      z-index: 3;
     }
 
     @keyframes slideFromLeft {
@@ -1899,13 +1900,13 @@
 
     /* ─── BEFORE & AFTER REDESIGN ─── */
     #before-after {
-      padding: 100px 0;
+      padding: 50px 0;
       background: var(--white);
     }
 
     .ba-header {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 24px;
     }
 
     .ba-header .section-label {
@@ -1927,14 +1928,14 @@
 
     .ba-header .section-title {
       font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-size: clamp(2.5rem, 5vw, 3rem);
       font-weight: 700;
       color: var(--ink);
       line-height: 1.15;
     }
 
     .ba-subtitle {
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       color: var(--ink-mid);
       margin-top: 15px;
     }
@@ -2002,17 +2003,23 @@
     }
 
     .ba-before img {
-      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
       height: 100%;
       object-fit: cover;
-      object-position: left center;
+      object-position: center;
     }
 
     .ba-after img {
-      width: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
       height: 100%;
       object-fit: cover;
-      object-position: right center;
+      object-position: center;
     }
 
     .ba-before {
@@ -2147,7 +2154,7 @@
 
     .ba-process-title {
       font-family: var(--font-display);
-      font-size: 1.8rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--ink);
       margin-bottom: 15px;
@@ -2208,14 +2215,14 @@
     }
 
     .ba-p-text h4 {
-      font-size: 0.95rem;
+      font-size: 0.75rem;
       font-weight: 700;
       color: var(--ink);
       margin-bottom: 4px;
     }
 
     .ba-p-text p {
-      font-size: 0.85rem;
+      font-size: 0.65rem;
       color: var(--ink-light);
       line-height: 1.4;
     }
@@ -2488,12 +2495,12 @@
     .floating-photos {
       position: absolute;
       top: 50%;
-      right: 0;
+      right: 30em;
       width: 500px;
       height: 600px;
       transform: translateY(-50%);
       pointer-events: none;
-      z-index: 2;
+      z-index: -2;
     }
 
     .photo-card {
